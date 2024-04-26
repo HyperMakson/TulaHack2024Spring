@@ -53,7 +53,6 @@ require_once 'php_script/Helper.php'; require_once "php_script/ConnectDB.php"
     <?
     require_once $_SERVER["DOCUMENT_ROOT"] . '/include_headfoot/footer.php';
     ?>
-    <script src="scripts/script.js"></script>
 </body>
 
 </html>
