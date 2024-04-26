@@ -1,10 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Авторизация</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -14,11 +15,13 @@
         <p>Login</p>
     </div>
     <br>
-    <input type="text" class="input-login" id="log" name="login" value="Логин">
+    <form action="../Script/Login.php" method="POST">
+    <input type="text" class="input-login" id="log" name="login" value="Логин" required>
     <br>
-    <input type="password" class="input-pass" id="pass" name="password" size="10">
+    <input type="password" class="input-pass" id="pass" name="password" size="10" required>
     <br>
     <input type="submit" class="input-submit" value="Войти">
+    </form>
     <br>
     <div class="logpic">
     </div>
