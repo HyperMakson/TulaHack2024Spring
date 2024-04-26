@@ -10,7 +10,17 @@
 
 <body>
     <div class="header">
-        <div>Head</div>
+        <div class="header__navbar">
+            <div class="navbar__logo"></div>
+            <div class="navbar__link">
+                <div class="link__log">
+                    <a href="">Вход</a>
+                </div>
+                <div class="link__reg">
+                    <a href="">Регистрация</a>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="main">
         <div class="main-container">
