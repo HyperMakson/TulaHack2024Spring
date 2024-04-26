@@ -1,6 +1,7 @@
 <?
 require_once $_SERVER["DOCUMENT_ROOT"] . '/include_headfoot/header.php';
-require_once 'php_script/Helper.php'; require_once "php_script/ConnectDB.php"
+require_once 'php_script/Helper.php';
+require_once "php_script/ConnectDB.php";
 ?>
 
 <body>
@@ -12,18 +13,19 @@ require_once 'php_script/Helper.php'; require_once "php_script/ConnectDB.php"
             <div class="navbar__logo">
                 <p>LOGO</p>
             </div>
-            
+
             <div class="navbar__link">
-            <?php if (empty($_SESSION['user'])){  echo '
+                <?php if (empty($_SESSION['user'])) {
+                    echo '
                 <div class="link__log">
-                
                     <a href="logreg/login.php">Вход</a>
                 </div>
                 <div class="link__reg">
-                    <a href="">Регистрация</a>
-                </div>';}else{
+                    <a href="logreg/register.php">Регистрация</a>
+                </div>';
+                } else {
                     echo '<a href="php_script/Exit.php">Выход</a>';
-                }?>
+                } ?>
             </div>
         </div>
     </div>
