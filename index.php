@@ -47,7 +47,6 @@ require_once $_SERVER["DOCUMENT_ROOT"] . '/include_headfoot/header.php';
     <?
     require_once $_SERVER["DOCUMENT_ROOT"] . '/include_headfoot/footer.php';
     ?>
-    <script src="scripts/script.js"></script>
 </body>
 
 </html>
