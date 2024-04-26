@@ -16,6 +16,11 @@
     height: 10vh;
     overflow: hidden;
     z-index: 10;
+    transition: all 0.3s ease-in-out;
+}
+
+.header__change-color {
+    background: rgba(141, 211, 187, 1);
 }
 
 .header__navbar {
@@ -27,6 +32,11 @@
     justify-content: space-between;
     align-items: center;
     padding: 0 30px;
+}
+
+.navbar__fast-link,
+.navbar__logo {
+    color: #FFFFFF;
 }
 
 .navbar__logo {

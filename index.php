@@ -53,6 +53,7 @@
     <div class="footer">
         <p>FOOTER</p>
     </div>
+    <script src="scripts/script.js"></script>
 </body>
 
 </html>
