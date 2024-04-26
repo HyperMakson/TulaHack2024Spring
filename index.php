@@ -1,12 +1,6 @@
-<!DOCTYPE html>
-<html lang="ru">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/style.css">
-    <title>TulaHack</title>
-</head>
+<?
+require_once $_SERVER["DOCUMENT_ROOT"] . '/include_headfoot/header.php';
+?>
 
 <body>
     <div class="header">
@@ -50,9 +44,9 @@
             </div>
         </div>
     </div>
-    <div class="footer">
-        <p>FOOTER</p>
-    </div>
+    <?
+    require_once $_SERVER["DOCUMENT_ROOT"] . '/include_headfoot/footer.php';
+    ?>
     <script src="scripts/script.js"></script>
 </body>
 
