@@ -1,0 +1,65 @@
+/* Frame 261 */
+
+/* Auto layout */
+.log {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 16px;
+
+    width: 512px;
+    height: 87px;
+    font-family: 'TradeGothic LT Extended';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 51px;
+}
+
+.logfield {
+/* state-layer */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 8px 0px 8px 16px;
+
+width: 512px;
+height: 56px;
+
+border-radius: 4px 4px 0px 0px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+}
+
+.signupbtn {
+    /* style_layer */
+
+    /* Auto layout */
+    appearance: 0;
+    border: 0;
+    border-radius: 5px;
+    background: #79747E;
+    color: black;
+}
+
+.logpic {
+
+
+    position: absolute;
+    width: 618px;
+    height: 816px;
+    left: 720px;
+    top: 104px;
+
+
+    background: url("plane.jpg");
+    background-size: cover;
+    border-radius: 30px;
+}
