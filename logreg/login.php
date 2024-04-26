@@ -15,7 +15,7 @@
         <p>Login</p>
     </div>
     <br>
-    <form action="../Script/Login.php" method="POST">
+    <form action="../php_script/Login.php" method="POST">
     <input type="text" class="input-login" id="log" name="login" value="Логин" required>
     <br>
     <input type="password" class="input-pass" id="pass" name="password" size="10" required>
