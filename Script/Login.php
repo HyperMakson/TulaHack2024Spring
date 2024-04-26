@@ -9,10 +9,10 @@ if (!empty($_POST['password']) and !empty($_POST['login'])){
     $user = selectUser($login, $password);
     if (!empty($user)){
         $_SESSION['user'] = $user;
-        redirect('/TulaHack2024Spring/index.php');
+        redirect('../index.php');
     } 
 else{
-        redirect('/TulaHack2024Spring/login.php');
+        redirect('/logreg/login.php');
 
     }
 

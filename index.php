@@ -13,7 +13,7 @@ require_once $_SERVER["DOCUMENT_ROOT"] . '/include_headfoot/header.php';
             </div>
             <div class="navbar__link">
                 <div class="link__log">
-                    <a href="">Вход</a>
+                    <a href="logreg/login.php">Вход</a>
                 </div>
                 <div class="link__reg">
                     <a href="">Регистрация</a>
