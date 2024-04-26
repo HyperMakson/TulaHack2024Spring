@@ -14,22 +14,22 @@
         <div class="navbar">
             <nav>
                 <a class="navbar-airplane" href="#">
-                    <img src="../images/airplane.svg" alt="">
+                    <img src="../images/profile/airplane.svg" alt="">
                     <span>Найти транспорт</span>
                 </a>
                 <a class="navbar-sleep" href="#">
-                    <img src="../images/bed.svg">
+                    <img src="../images/profile/bed.svg">
                     <span>Найти отель</span>
                 </a>
                 <a class="navbar-logo" href="#">
-                    <img src="../images/logo.svg">
+                    <img src="../images/profile/logo.svg">
                 </a>
                 <a class="navbar-favourites" href="#">
-                    <img src="../images/like.svg">
+                    <img src="../images/profile/like.svg">
                     <span>Избранное</span>
                 </a>
                 <a class="navbar-profile" href="#">
-                    <img src="../images/profile photo.png">
+                    <img src="../images/profile/profile-photo.png">
                     <span>Максим</span>
                 </a>
         </div>
@@ -40,7 +40,7 @@
         <div class="middle-rectangle">
         </div>
         <div class="middle-profile_photo">
-            <img src="../images/profile photo big.png">
+            <img src="../images/profile/profile-photo-big.png">
             <span>Максим</span>
             <span>maxim@gmail.com</span>
         </div>
@@ -88,20 +88,20 @@
 
             <div class="footer-nav">
                 <a class="footer-logo" href="#">
-                    <img src="../images/logo.svg">
+                    <img src="../images/profile/logo.svg">
                 </a>
                 <nav>
                     <a class="footer-logo-social" href="#">
-                        <img src="../images/facebook.svg">
+                        <img src="../images/profile/facebook.svg">
                     </a>
                     <a class="footer-logo-social" href="#">
-                        <img src="../images/Twitter.png">
+                        <img src="../images/profile/Twitter.png">
                     </a>
                     <a class="footer-logo-social" href="#">
-                        <img src="../images/youtube.svg">
+                        <img src="../images/profile/youtube.svg">
                     </a>
                     <a class="footer-logo-social" href="#">
-                        <img src="../images/instagram.svg">
+                        <img src="../images/profile/instagram.svg">
                     </a>
                 </nav>
             </div>
