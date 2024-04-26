@@ -30,9 +30,10 @@ require_once 'php_script/Helper.php'; require_once "php_script/ConnectDB.php"
     <div class="main">
         <div class="main-logo">
             <div class="main-container">
+            <?php if (!empty($_SESSION['user'])){  echo '
                 <div class="main-text__container">
-                    <p class="main-text">Личный кабинет туриста</p>
-                </div>
+                    <a href="profile/user.php"><p class="main-text">Личный кабинет туриста</p></a>
+                </div>';}?>
             </div>
             <div class="history-travel">
                 <p>Здесь поиск</p>

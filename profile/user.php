@@ -1,5 +1,6 @@
 <?
 require_once $_SERVER["DOCUMENT_ROOT"] . '/include_headfoot/header.php';
+require_once '../php_script/Helper.php';
 ?>
 
 <body>
@@ -24,7 +25,7 @@ require_once $_SERVER["DOCUMENT_ROOT"] . '/include_headfoot/header.php';
                 </a>
                 <a class="navbar-profile" href="#">
                     <img src="../images/profile/profile-photo.png">
-                    <span>Максим</span>
+                    <span><?=$_SESSION['user']['name']?></span>
                 </a>
             </nav>
         </div>
@@ -35,9 +36,9 @@ require_once $_SERVER["DOCUMENT_ROOT"] . '/include_headfoot/header.php';
         <div class="middle-rectangle">
         </div>
         <div class="middle-profile_photo">
-            <img src="../images/profile/profile-photo-big.png">
-            <span>Максим</span>
-            <span>maxim@gmail.com</span>
+            <img src="<?=$_SESSION['user']['picture']?>">
+            <span><?=$_SESSION['user']['name']?></span>
+            <span><?=$_SESSION['user']['email']?></span>
         </div>
     </div>
 
@@ -53,15 +54,11 @@ require_once $_SERVER["DOCUMENT_ROOT"] . '/include_headfoot/header.php';
         <h1>Аккаунт</h1>
         <div class="account-name">
             <h2>Имя</h2>
-            <span>Максим Варов</span>
+            <span><?=$_SESSION['user']['name']?></span>
         </div>
         <div class="account-email">
             <h2>Email</h2>
-            <span>maxim@gmail.com</span>
-        </div>
-        <div class="account-password">
-            <h2>Пароль</h2>
-            <span>*********</span>
+            <span><?=$_SESSION['user']['email']?></span>
         </div>
         <div class="account-phone_number">
             <h2>Номер телефона</h2>
