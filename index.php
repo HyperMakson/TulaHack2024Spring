@@ -44,6 +44,8 @@ require_once "php_script/ConnectDB.php";
             </div>
             <div class="history-travel">
                 <p>Здесь поиск</p>
+                <input type="text" id="search" name="search_name">
+                <input type="submit" value="Найти">
             </div>
         </div>
         <div class="main-content">
@@ -61,11 +63,11 @@ require_once "php_script/ConnectDB.php";
                             foreach ($trip as $elem) {
                                 ?>
                                 <div class="block-tour__items">
-                                    <p><?= $elem['name'] ?></p>
-                                    <img src="<?= $elem['picture'] ?>">
-                                    <p><?= $elem['address'] ?></p>
-                                    <p>Id: <?= $elem['id']; ?></p>
-                                    <a href=""></a>
+                                    <img src="<?= $elem['picture'] ?>" class="block-tour__picture">
+                                    <div class="block-tour__info-container">
+                                        <a href="/detail-tour/detail.php?tour=<?= $elem['id']; ?>"><?= $elem['name'] ?></a>
+                                        <p><?= $elem['address'] ?></p>
+                                    </div>
                                 </div>
                             <?
                             }
@@ -74,10 +76,11 @@ require_once "php_script/ConnectDB.php";
                             foreach ($trip as $elem) {
                                 ?>
                                 <div class="block-tour__items">
-                                    <p><?= $elem['name'] ?></p>
-                                    <img src="<?= $elem['picture'] ?>">
-                                    <p><?= $elem['address'] ?></p>
-                                    <p>Id: <?= $elem['id']; ?></p>
+                                    <img src="<?= $elem['picture'] ?>" class="block-tour__picture">
+                                    <div class="block-tour__info-container">
+                                        <a href="/detail-tour/detail.php?tour=<?= $elem['id']; ?>"><?= $elem['name'] ?></a>
+                                        <p><?= $elem['address'] ?></p>
+                                    </div>
                                 </div>
                             <? }
                         } ?>
@@ -86,10 +89,12 @@ require_once "php_script/ConnectDB.php";
                         foreach ($trip as $elem) {
                             ?>
                             <div class="block-tour__items">
-                                <p><?= $elem['name'] ?></p>
-                                <img src="<?= $elem['picture'] ?>">
-                                <p><?= $elem['address'] ?></p>
-                                <p>Id: <?= $elem['id']; ?></p>
+                                <img src="<?= $elem['picture'] ?>" class="block-tour__picture">
+                                <div class="block-tour__info-container">
+                                    <a href="/detail-tour/detail.php?tour=<?= $elem['id']; ?>"
+                                        class="block-tour__info-link"><?= $elem['name'] ?></a>
+                                    <p><?= $elem['address'] ?></p>
+                                </div>
                             </div>
                         <?
                         }
@@ -102,7 +107,7 @@ require_once "php_script/ConnectDB.php";
                     <?= var_dump(selectСompanion($_SESSION['user']['id'])) ?>
                 <? } ?>
             </div>
-            <div class="block-news block-news__height">
+            <div class="block-news block-news__height block-news__margin-bottom">
                 <?= var_dump(selectReviews()) ?>
             </div>
         </div>

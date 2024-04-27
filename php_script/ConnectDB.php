@@ -24,7 +24,18 @@ function addUser(string $userName, string $userLogin, string $userPassword, arra
     global $pdo;
     $sql = "INSERT user (name, email, password) VALUES (:userName, :userLogin, :userPassword)";
     $stmt = $pdo->prepare($sql);
-    return $stmt->execute(['userName' => $userName, 'userLogin' => $userLogin, 'userPassword' => $userPassword]);
+    $stmt->execute(['userName' => $userName, 'userLogin' => $userLogin, 'userPassword' => $userPassword]);
+    $sql = "SELECT  id FROM user WHERE email = :userLogin AND password = :userPassword";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute(['userLogin' => $userLogin, 'userPassword' => $userPassword]);
+    $user_id = $stmt->fetch(PDO::FETCH_ASSOC);
+    foreach ($checkbox_values as $value) {
+    $sql = "INSERT INTO `user_hobby`(`id_user`, `id_hobby`) VALUES (:userId,:hobbyId)";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute(["userId"=> $user_id['id'], "hobbyId" => $value]);
+    }
+    return 1;
+
 }
 function selectTripforUser(int $userId)
 {
@@ -113,4 +124,13 @@ function selectHobbys()
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function selectTripbyId(int $tripId)
+{
+    global $pdo;
+    $sql = "SELECT * FROM trip WHERE id = :tripId";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute(["tripId"=> $tripId]);
+    return $stmt->fetch(PDO::FETCH_ASSOC);
 }
