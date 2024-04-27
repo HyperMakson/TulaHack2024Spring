@@ -13,7 +13,6 @@ require_once "php_script/ConnectDB.php";
             <div class="navbar__logo">
                 <p>LOGO</p>
             </div>
-
             <div class="navbar__link">
                 <? if (empty($_SESSION['user'])) {
                     ?>
@@ -39,12 +38,9 @@ require_once "php_script/ConnectDB.php";
     <div class="main">
         <div class="main-logo">
             <div class="main-container">
-                <?php if (!empty($_SESSION['user'])) {
-                    echo '
                 <div class="main-text__container">
-                    <a href="profile/user.php"><p class="main-text">Личный кабинет туриста</p></a>
-                </div>';
-                } ?>
+                    <p class="main-text">Личный кабинет туриста</p>
+                </div>
             </div>
             <div class="history-travel">
                 <p>Здесь поиск</p>

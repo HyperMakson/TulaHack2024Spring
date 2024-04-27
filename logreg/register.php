@@ -42,8 +42,4 @@ chekAuth();
         </div>
     </div>
 
-<<<<<<< HEAD
     </html>
-=======
-    </html>
->>>>>>> 7d0ead884c37c64109be3ad8ffaa305be2e525c3
