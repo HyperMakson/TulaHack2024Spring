@@ -56,7 +56,7 @@ require_once "php_script/ConnectDB.php";
                 <p>Здесь что-нибудь выводить</p>
             </div>
             <div class="block-news">
-                <p>Здесь отзывы</p>
+                <?= var_dump(selectReviews())?>
             </div>
         </div>
     </div>

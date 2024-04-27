@@ -51,3 +51,12 @@ function selectTripforUser(int $userId)
         return "PUSTO";
     }
 }
+
+function selectReviews(){
+    global $pdo;
+    $sql = "SELECT u.name AS user_name, t.name AS trip_name, r.text AS review_text FROM user u JOIN reviews r ON u.id = r.id_user JOIN trip t ON r.id_trip = t.id;";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+}
