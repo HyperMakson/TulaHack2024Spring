@@ -100,21 +100,7 @@ return $stmt->fetchAll(PDO::FETCH_ASSOC);*/
             $user = $stmt->fetchAll(PDO::FETCH_ASSOC);
             $users[] = $user;
         }
-        $flatArray = array_reduce($users, function ($carry, $item) {
-            foreach ($item as $subItem) {
-                $carry[] = $subItem['id_user'];
-            }
-            return $carry;
-        }, []);
-        $uniqueArray = array_unique($flatArray);
-        foreach ($uniqueArray as $item) {
-            $sql = "SELECT name, email, picture FROM user WHERE id = :userId";
-            $stmt = $pdo->prepare($sql);
-            $stmt->execute(['userId' => $item]);
-            $user = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            $users[] = $user;
-            return $users;
-        }
+        return $users;
     }
 }
 function selectHobbys()
