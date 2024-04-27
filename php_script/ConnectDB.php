@@ -109,7 +109,8 @@ return $stmt->fetchAll(PDO::FETCH_ASSOC);*/
 function selectHobbys()
 {
     global $pdo;
-    $sql = 'SELECT hobby FROM hobbies';
+    $sql = 'SELECT * FROM hobbies';
     $stmt = $pdo->prepare($sql);
+    $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }

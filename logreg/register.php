@@ -1,6 +1,7 @@
 <?
 require_once $_SERVER["DOCUMENT_ROOT"] . '/include_headfoot/header.php';
 require_once '../php_script/Helper.php';
+require_once "../php_script/ConnectDB.php";
 chekAuth();
 ?>
 
@@ -22,7 +23,8 @@ chekAuth();
                             </div>
                             ...
                         </div>
-                        <div class="swiper-pagination"></div>
+                        <div class="swiper-pagination">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -30,7 +32,8 @@ chekAuth();
         <div class="log__container">
             <div class="log__container-for-form">
                 <div class="log-name__container">
-                    <p class="log-name">Регистрация</p>
+                    <p class="log-name">Регистрация
+                    </p>
                 </div>
                 <form action="../php_script/Registr.php" method="POST">
                     <div class="login__container">
@@ -49,11 +52,12 @@ chekAuth();
                         <label for="input-login" class="upper-text__log-form">Увлечения</label>
                         <div class="input-fields input-login input-hobby">
                             <?
-                            for ($i = 1; $i <= 10; $i++) {
+                            $hobbys = selectHobbys();
+                            foreach($hobbys as $hobby){
                                 ?>
                                 <div class="input-hobby__item">
-                                    <input type="checkbox" name="hobby" id="hobby" required>
-                                    <label for="hobby">Scales</label>
+                                    <input type="checkbox" name="<?=$hobby['id']?>" id="hobby">
+                                    <label for="hobby"><?=$hobby['hobby']?></label>
                                 </div>
                             <?
                             }
