@@ -65,3 +65,16 @@ function selectTrip(){
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
+
+function selectСompanion($userId){
+global $pdo;
+/*$sql = "SELECT * FROM companions WHERE id_user != :userId AND id_companion != :userId";
+$stmt = $pdo->prepare($sql);
+$stmt->execute(['userId' => $userId]);
+return $stmt->fetchAll(PDO::FETCH_ASSOC);*/
+$sql = "SELECT id_trip FROM user_history WHERE id_user = :userId";
+$stmt = $pdo->prepare($sql);
+$stmt->execute(['userId' => $userId]);
+$arr_id_trip = $stmt->fetch(PDO::FETCH_ASSOC);
+
+}

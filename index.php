@@ -60,7 +60,7 @@ require_once "php_script/ConnectDB.php";
                    
                     <?
                     $trip = selectTripforUser($_SESSION['user']['id']);
-                    
+                    if (!empty($trip)){
                     foreach ($trip as $elem) {
                         ?>
                         <div class="block-tour__items">
@@ -70,8 +70,17 @@ require_once "php_script/ConnectDB.php";
                              
                         </div>
                     <?
-                    }
-                    ?>
+                    }}else{
+                    $trip = selectTrip();
+                    foreach ($trip as $elem) {
+                        ?>
+                        <div class="block-tour__items">
+                             <p><?=$elem['name']?></p>
+                             <img src="<?=$elem['picture']?>">
+                             <p><?=$elem['address']?></p>
+                             
+                        </div>
+                    <?}}?>
                     <? } else {
                     $trip = selectTrip();
                     foreach ($trip as $elem) {
@@ -89,7 +98,9 @@ require_once "php_script/ConnectDB.php";
                 </div>
             </div>
             <div class="block-news block-news__height">
-                <p>Здесь что-нибудь выводить</p>
+            <? if (!empty($_SESSION['user'])) {?>
+                <?= var_dump(selectСompanion($_SESSION['user']['id']))?>
+                <?}?>
             </div>
             <div class="block-news block-news__height">
                 <?= var_dump(selectReviews()) ?>
