@@ -13,18 +13,18 @@ try {
 function selectUser(string $userLogin, string $userPassword)
 {
     global $pdo;
-    $sql = "SELECT  id, name, email, picture FROM user WHERE email = :userLogin AND password = :userPassword";
+    $sql = "SELECT  id, name, email FROM user WHERE email = :userLogin AND password = :userPassword";
     $stmt = $pdo->prepare($sql);
     $stmt->execute(['userLogin' => $userLogin, 'userPassword' => $userPassword]);
     return $stmt->fetch(PDO::FETCH_ASSOC);
 }
 
-function addUser(string $userName, string $userLogin, string $userPassword, string $userPicture)
+function addUser(string $userName, string $userLogin, string $userPassword)
 {
     global $pdo;
-    $sql = "INSERT user (name, email, password, picture) VALUES (:userName, :userLogin, :userPassword,  :userPicture)";
+    $sql = "INSERT user (name, email, password) VALUES (:userName, :userLogin, :userPassword)";
     $stmt = $pdo->prepare($sql);
-    return $stmt->execute(['userName' => $userName, 'userLogin' => $userLogin, 'userPassword' => $userPassword, 'userPicture' => $userPicture]);
+    return $stmt->execute(['userName' => $userName, 'userLogin' => $userLogin, 'userPassword' => $userPassword]);
 }
 function selectTripforUser(int $userId)
 {

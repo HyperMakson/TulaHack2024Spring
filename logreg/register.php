@@ -46,8 +46,19 @@ chekAuth();
                         <input type="password" class="input-fields input-pass" id="pass" name="password" required>
                     </div>
                     <div class="login__container">
-                        <label for="input-login" class="upper-text__log-form">Фото профиля</label>
-                        <input type="text" class="input-fields input-login" id="profile" name="picture" required>
+                        <label for="input-login" class="upper-text__log-form">Увлечения</label>
+                        <div class="input-fields input-login input-hobby">
+                            <?
+                            for ($i = 1; $i <= 10; $i++) {
+                                ?>
+                                <div class="input-hobby__item">
+                                    <input type="checkbox" name="hobby" id="hobby" required>
+                                    <label for="hobby">Scales</label>
+                                </div>
+                            <?
+                            }
+                            ?>
+                        </div>
                     </div>
                     <input type="submit" class="input-fields input-submit" value="Зарегистрироваться">
                 </form>

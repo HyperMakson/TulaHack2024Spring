@@ -382,6 +382,19 @@ h2 {
     cursor: pointer;
 }
 
+.input-hobby {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    padding: 10px;
+}
+
+.input-hobby__item {
+    margin: 0 10px;
+}
+
 .login__container {
     position: relative;
 }
@@ -575,9 +588,10 @@ h2 {
     font-size: 16px;
     line-height: 20px;
     color: #000;
-    
+
 }
-.footer-nav{
+
+.footer-nav {
     margin-top: 2%;
     margin-bottom: 2%;
     margin-left: 10%;
