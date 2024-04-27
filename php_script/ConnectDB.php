@@ -142,3 +142,10 @@ function searchTrip(string $string){
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
+
+function addTriptoUser(int $tripId, int $userId){
+    global $pdo;
+    $sql = "INSERT INTO user_history (`id_user`, `id_trip`) VALUES (:userId, :tripId)";
+    $stmt = $pdo->prepare($sql);
+    return $stmt->execute(["tripId"=> $tripId,"userId"=> $userId]);
+}
