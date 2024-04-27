@@ -5,22 +5,9 @@ chekNotAuth();
 ?>
 
 <body>
-    <header>
-        <!-- Навигация сверху -->
-        <div class="navbar">
-            <a class="navbar-favourites" href="/">
-                <img src="../images/like.svg">
-                <span>Избранное</span>
-            </a>
-            <a class="navbar-logo" href="/">
-                <img src="../images/logo.svg">
-            </a>
-            <a class="navbar-profile" href="#">
-                <img src="../images/avatar.png">
-                <span><?= $_SESSION['user']['name'] ?></span>
-            </a>
-        </div>
-    </header>
+    <?
+    require_once $_SERVER["DOCUMENT_ROOT"] . '/include_headfoot/header_inner-page.php';
+    ?>
 
     <div class="center">
         <!-- Цветной прямоугольник и фотка -->

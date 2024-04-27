@@ -1,30 +1,36 @@
-<div class="header">
-    <div class="header__navbar">
-        <div class="navbar__fast-link">
-            <p>Ачивки</p>
-        </div>
-        <div class="navbar__logo">
-            <p>LOGO</p>
-        </div>
+<header class="header-inner">
+    <!-- Навигация сверху -->
+    <div class="navbar">
+        <a class="navbar-favourites" href="/">
+            <img src="../images/like.svg">
+            <span>Избранное</span>
+        </a>
+        <a class="navbar-logo" href="/">
+            <img src="../images/logo2.svg">
+        </a>
         <div class="navbar__link">
             <? if (empty($_SESSION['user'])) {
                 ?>
-                <div class="link__logreg">
-                    <a href="logreg/login.php">Вход</a>
-                </div>
-                <div class="link__logreg">
-                    <a href="logreg/register.php">Регистрация</a>
+                <div class="navbar__link">
+                    <div class="link__logreg link__mobile-log">
+                        <a href="../logreg/login.php">Вход</a>
+                    </div>
+                    <div class="link__logreg link__mobile-reg">
+                        <a href="../logreg/register.php">Регистрация</a>
+                    </div>
                 </div>
             <?
             } else {
                 ?>
-                <div class="link__logreg link__profile">
-                    <a href="profile/user.php">
-                        <div class="link__profile-avatar"></div>
-                    </a>
+                <div class="navbar__link">
+                    <div class="link__logreg link__profile">
+                        <a class="navbar-profile" href="../profile/user.php">
+                            <img src="../images/avatar.png">
+                        </a>
+                    </div>
                 </div>
             <?
             } ?>
         </div>
     </div>
-</div>
+</header>

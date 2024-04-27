@@ -8,28 +8,22 @@ require_once "php_script/ConnectDB.php";
 <body>
     <div class="header">
         <div class="header__navbar">
-            <div class="navbar__fast-link">
-                <p>Ачивки</p>
-            </div>
+            <div class="navbar__fast-link"></div>
             <div class="navbar__logo">
-                <p>LOGO</p>
+                <img src="../images/logo.svg">
             </div>
-
-
-
             <div class="navbar__link">
-
                 <? if (empty($_SESSION['user'])) {
-                ?>
-                    <div class="link__logreg">
+                    ?>
+                    <div class="link__logreg link__mobile-log">
                         <a href="logreg/login.php">Вход</a>
                     </div>
-                    <div class="link__logreg">
+                    <div class="link__logreg link__mobile-reg">
                         <a href="logreg/register.php">Регистрация</a>
                     </div>
                 <?
                 } else {
-                ?>
+                    ?>
                     <div class="link__logreg link__profile">
                         <a href="profile/user.php">
                             <div class="link__profile-avatar"></div>
@@ -49,7 +43,7 @@ require_once "php_script/ConnectDB.php";
             </div>
             <div class="history-travel">
                 <form id="searchForm" method="GET">
-                    <input type="text" id="search" name = "search" placeholder="Введите запрос для поиска">
+                    <input type="text" id="search" name="search" placeholder="Введите запрос для поиска">
                     <button type="submit">Поиск</button>
                 </form>
             </div>
@@ -62,30 +56,32 @@ require_once "php_script/ConnectDB.php";
                     </div>
                 </div>
                 <div class="block-news__info">
-                    
-                <? if(isset($_GET['search'])){
-    $searchValue = $_GET['search'];
-    $results = searchTrip($searchValue);
-    foreach($results as $result){
-        $name = $result['name'];
-        $id = $result['id'];
-        $picture = $result["picture"];
-        $address = $result['address'];?> 
-        <div class='block-tour__items'>
-        <img src='<?=$picture?>' class='block-tour__picture'>
-        <div class='block-tour__info-container'>
-            <a href='/detail-tour/detail.php?tour="<?=$id?>";'><?=$name?></a>
-            <p><?=$address?></p>
-        </div>
-    </div><?}}else{?>
 
-    
+                    <? if (isset($_GET['search'])) {
+                        $searchValue = $_GET['search'];
+                        $results = searchTrip($searchValue);
+                        foreach ($results as $result) {
+                            $name = $result['name'];
+                            $id = $result['id'];
+                            $picture = $result["picture"];
+                            $address = $result['address']; ?>
+                            <div class='block-tour__items'>
+                                <img src='<?= $picture ?>' class='block-tour__picture'>
+                                <div class='block-tour__info-container'>
+                                    <a href='/detail-tour/detail.php?tour="<?= $id ?>";'><?= $name ?></a>
+                                    <p><?= $address ?></p>
+                                </div>
+                            </div>
+                        <? }
+                    } else { ?>
+
+
                         <? if (!empty($_SESSION['user'])) { ?>
                             <?
                             $trip = selectTripforUser($_SESSION['user']['id']);
                             if (!empty($trip)) {
                                 foreach ($trip as $elem) {
-                            ?>
+                                    ?>
                                     <div class="block-tour__items">
                                         <img src="<?= $elem['picture'] ?>" class="block-tour__picture">
                                         <div class="block-tour__info-container">
@@ -98,7 +94,7 @@ require_once "php_script/ConnectDB.php";
                             } else {
                                 $trip = selectTrip();
                                 foreach ($trip as $elem) {
-                                ?>
+                                    ?>
                                     <div class="block-tour__items">
                                         <img src="<?= $elem['picture'] ?>" class="block-tour__picture">
                                         <div class="block-tour__info-container">
@@ -106,23 +102,24 @@ require_once "php_script/ConnectDB.php";
                                             <p><?= $elem['address'] ?></p>
                                         </div>
                                     </div>
-                            <? }
+                                <? }
                             } ?>
-                            <? } else {
+                        <? } else {
                             $trip = selectTrip();
                             foreach ($trip as $elem) {
-                            ?>
+                                ?>
                                 <div class="block-tour__items">
                                     <img src="<?= $elem['picture'] ?>" class="block-tour__picture">
                                     <div class="block-tour__info-container">
-                                        <a href="/detail-tour/detail.php?tour=<?= $elem['id']; ?>" class="block-tour__info-link"><?= $elem['name'] ?></a>
+                                        <a href="/detail-tour/detail.php?tour=<?= $elem['id']; ?>"
+                                            class="block-tour__info-link"><?= $elem['name'] ?></a>
                                         <p><?= $elem['address'] ?></p>
                                     </div>
                                 </div>
                             <?
                             }
                             ?>
-                        <? } ?><?}?>
+                        <? } ?><? } ?>
                 </div>
             </div>
             <div class="block-news block-news__height">
