@@ -54,53 +54,53 @@ require_once "php_script/ConnectDB.php";
                     </div>
                 </div>
                 <div class="block-news__info">
-                   
-                <? if (!empty($_SESSION['user'])) {?>
-                        
-                   
-                    <?
-                    $trip = selectTripforUser($_SESSION['user']['id']);
-                    if (!empty($trip)){
-                    foreach ($trip as $elem) {
-                        ?>
-                        <div class="block-tour__items">
-                             <p><?=$elem['name']?></p>
-                             <img src="<?=$elem['picture']?>">
-                             <p><?=$elem['address']?></p>
-                             
-                        </div>
-                    <?
-                    }}else{
-                    $trip = selectTrip();
-                    foreach ($trip as $elem) {
-                        ?>
-                        <div class="block-tour__items">
-                             <p><?=$elem['name']?></p>
-                             <img src="<?=$elem['picture']?>">
-                             <p><?=$elem['address']?></p>
-                             
-                        </div>
-                    <?}}?>
+                    <? if (!empty($_SESSION['user'])) { ?>
+                        <?
+                        $trip = selectTripforUser($_SESSION['user']['id']);
+                        if (!empty($trip)) {
+                            foreach ($trip as $elem) {
+                                ?>
+                                <div class="block-tour__items">
+                                    <p><?= $elem['name'] ?></p>
+                                    <img src="<?= $elem['picture'] ?>">
+                                    <p><?= $elem['address'] ?></p>
+                                    <p>Id: <?= $elem['id']; ?></p>
+                                    <a href=""></a>
+                                </div>
+                            <?
+                            }
+                        } else {
+                            $trip = selectTrip();
+                            foreach ($trip as $elem) {
+                                ?>
+                                <div class="block-tour__items">
+                                    <p><?= $elem['name'] ?></p>
+                                    <img src="<?= $elem['picture'] ?>">
+                                    <p><?= $elem['address'] ?></p>
+                                    <p>Id: <?= $elem['id']; ?></p>
+                                </div>
+                            <? }
+                        } ?>
                     <? } else {
-                    $trip = selectTrip();
-                    foreach ($trip as $elem) {
+                        $trip = selectTrip();
+                        foreach ($trip as $elem) {
+                            ?>
+                            <div class="block-tour__items">
+                                <p><?= $elem['name'] ?></p>
+                                <img src="<?= $elem['picture'] ?>">
+                                <p><?= $elem['address'] ?></p>
+                                <p>Id: <?= $elem['id']; ?></p>
+                            </div>
+                        <?
+                        }
                         ?>
-                        <div class="block-tour__items">
-                             <p><?=$elem['name']?></p>
-                             <img src="<?=$elem['picture']?>">
-                             <p><?=$elem['address']?></p>
-                             
-                        </div>
-                    <?
-                    }
-                    ?>
-                        <?}?>
+                    <? } ?>
                 </div>
             </div>
             <div class="block-news block-news__height">
-            <? if (!empty($_SESSION['user'])) {?>
-                <?= var_dump(selectСompanion($_SESSION['user']['id']))?>
-                <?}?>
+                <? if (!empty($_SESSION['user'])) { ?>
+                    <?= var_dump(selectСompanion($_SESSION['user']['id'])) ?>
+                <? } ?>
             </div>
             <div class="block-news block-news__height">
                 <?= var_dump(selectReviews()) ?>
