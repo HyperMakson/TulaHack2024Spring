@@ -6,29 +6,34 @@ chekNotAuth();
 
 <body>
     <header>
+        <div class="header__navbar">
+            <div class="navbar__fast-link">
+                <p>Ачивки</p>
+            </div>
+            <div class="navbar__logo">
+                <p>LOGO</p>
+            </div>
+            <div class="navbar__link">
+                <div class="link__logreg link__profile">
+                    <a href="profile/user.php">
+                        <div class="link__profile-avatar"></div>
+                    </a>
+                </div>
+            </div>
+        </div>
         <!-- Навигация сверху -->
         <div class="navbar">
-            <nav>
-                <a class="navbar-airplane" href="#">
-                    <img src="../images/profile/airplane.svg" alt="">
-                    <span>Найти транспорт</span>
-                </a>
-                <a class="navbar-sleep" href="#">
-                    <img src="../images/profile/bed.svg">
-                    <span>Найти отель</span>
-                </a>
-                <a class="navbar-logo" href="#">
-                    <img src="../images/profile/logo.svg">
-                </a>
-                <a class="navbar-favourites" href="#">
-                    <img src="../images/profile/like.svg">
-                    <span>Избранное</span>
-                </a>
-                <a class="navbar-profile" href="#">
-                    <img src="../images/profile/profile-photo.png">
-                    <span><?= $_SESSION['user']['name'] ?></span>
-                </a>
-            </nav>
+            <a class="navbar-favourites" href="#">
+                <img src="../images/profile/like.svg">
+                <span>Избранное</span>
+            </a>
+            <a class="navbar-logo" href="#">
+                <img src="../images/profile/logo.svg">
+            </a>
+            <a class="navbar-profile" href="#">
+                <img src="../images/avatar.svg">
+                <span><?= $_SESSION['user']['name'] ?></span>
+            </a>
         </div>
     </header>
 
