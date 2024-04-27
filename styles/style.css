@@ -260,6 +260,16 @@
     width: 100%;
 }
 
+.block-tour__info-link {
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease-in-out;
+}
+
+.block-tour__info-link:hover {
+    color: rgba(0, 0, 0, 1);
+}
+
 /*Страница профиля*/
 
 h1 {

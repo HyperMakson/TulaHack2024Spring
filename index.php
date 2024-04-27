@@ -91,7 +91,8 @@ require_once "php_script/ConnectDB.php";
                             <div class="block-tour__items">
                                 <img src="<?= $elem['picture'] ?>" class="block-tour__picture">
                                 <div class="block-tour__info-container">
-                                    <a href="/detail-tour/detail.php?tour=<?= $elem['id']; ?>"><?= $elem['name'] ?></a>
+                                    <a href="/detail-tour/detail.php?tour=<?= $elem['id']; ?>"
+                                        class="block-tour__info-link"><?= $elem['name'] ?></a>
                                     <p><?= $elem['address'] ?></p>
                                 </div>
                             </div>
