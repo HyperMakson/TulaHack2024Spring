@@ -61,11 +61,11 @@ require_once "php_script/ConnectDB.php";
                             foreach ($trip as $elem) {
                                 ?>
                                 <div class="block-tour__items">
+                                    <img src="<?= $elem['picture'] ?>" class="block-tour__picture">
                                     <p><?= $elem['name'] ?></p>
-                                    <img src="<?= $elem['picture'] ?>">
                                     <p><?= $elem['address'] ?></p>
                                     <p>Id: <?= $elem['id']; ?></p>
-                                    <a href=""></a>
+                                    <a href="/detail-tour/detail.php?<?= $elem['id']; ?>">Детальная</a>
                                 </div>
                             <?
                             }
@@ -74,10 +74,11 @@ require_once "php_script/ConnectDB.php";
                             foreach ($trip as $elem) {
                                 ?>
                                 <div class="block-tour__items">
+                                    <img src="<?= $elem['picture'] ?>" class="block-tour__picture">
                                     <p><?= $elem['name'] ?></p>
-                                    <img src="<?= $elem['picture'] ?>">
                                     <p><?= $elem['address'] ?></p>
                                     <p>Id: <?= $elem['id']; ?></p>
+                                    <a href="/detail-tour/detail.php?<?= $elem['id']; ?>">Детальная</a>
                                 </div>
                             <? }
                         } ?>
@@ -86,10 +87,11 @@ require_once "php_script/ConnectDB.php";
                         foreach ($trip as $elem) {
                             ?>
                             <div class="block-tour__items">
+                                <img src="<?= $elem['picture'] ?>" class="block-tour__picture">
                                 <p><?= $elem['name'] ?></p>
-                                <img src="<?= $elem['picture'] ?>">
                                 <p><?= $elem['address'] ?></p>
                                 <p>Id: <?= $elem['id']; ?></p>
+                                <a href="/detail-tour/detail.php?<?= $elem['id']; ?>">Детальная</a>
                             </div>
                         <?
                         }
