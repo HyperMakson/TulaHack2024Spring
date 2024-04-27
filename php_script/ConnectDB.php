@@ -36,8 +36,7 @@ function selectTripforUser(int $userId)
 
     foreach ($arr_id_trip as $row) {
         $trip_id[] = $row['id_trip'];
-    }
-    ;
+    };
     if (isset($trip_id)) {
         foreach ($trip_id as $trip) {
             $sql = "SELECT * FROM trip WHERE id = :tripId";
@@ -46,19 +45,21 @@ function selectTripforUser(int $userId)
             $trip = $stmt->fetch(PDO::FETCH_ASSOC);
             $trips[] = $trip;
         }
-        return $trips;} 
+        return $trips;
+    }
 }
 
-function selectReviews(){
+function selectReviews()
+{
     global $pdo;
     $sql = "SELECT u.name AS user_name, t.name AS trip_name, r.text AS review_text FROM user u JOIN reviews r ON u.id = r.id_user JOIN trip t ON r.id_trip = t.id;";
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
-
 }
 
-function selectTrip(){
+function selectTrip()
+{
     global $pdo;
     $sql = "SELECT * FROM trip";
     $stmt = $pdo->prepare($sql);
@@ -66,41 +67,49 @@ function selectTrip(){
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
-function selectСompanion($userId){
-global $pdo;
-/*$sql = "SELECT * FROM companions WHERE id_user != :userId AND id_companion != :userId";
+function selectСompanion($userId)
+{
+    global $pdo;
+    /*$sql = "SELECT * FROM companions WHERE id_user != :userId AND id_companion != :userId";
 $stmt = $pdo->prepare($sql);
 $stmt->execute(['userId' => $userId]);
 return $stmt->fetchAll(PDO::FETCH_ASSOC);*/
-$sql = "SELECT id_trip FROM user_history WHERE id_user = :userId";
-$stmt = $pdo->prepare($sql);
-$stmt->execute(['userId' => $userId]);
-$arr_id_trip = $stmt->fetchAll(PDO::FETCH_ASSOC);
-foreach ($arr_id_trip as $row) {
-    $trip_id[] = $row['id_trip'];
-}
-if (isset($trip_id)) {
-    foreach ($trip_id as $trip) {
-        $sql = "SELECT id_user FROM user_history WHERE id_trip = :tripId AND id_user != :userId";
-        $stmt = $pdo->prepare($sql);
-        $stmt->execute(['tripId' => $trip, 'userId'=> $userId]);
-        $user = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        $users[] = $user;
-    }
-    $flatArray = array_reduce($users, function($carry, $item) {
-        foreach($item as $subItem) {
-            $carry[] = $subItem['id_user'];
-        }
-        return $carry;
-    }, []);
-    $uniqueArray = array_unique($flatArray);
-    foreach ( $uniqueArray as $item) {
-    $sql = "SELECT name, email, picture FROM user WHERE id = :userId";
+    $sql = "SELECT id_trip FROM user_history WHERE id_user = :userId";
     $stmt = $pdo->prepare($sql);
-    $stmt->execute(['userId'=> $item]);
-    $user = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    $users[] = $user;
-    return $users;}
-
-
-}}
+    $stmt->execute(['userId' => $userId]);
+    $arr_id_trip = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    foreach ($arr_id_trip as $row) {
+        $trip_id[] = $row['id_trip'];
+    }
+    if (isset($trip_id)) {
+        foreach ($trip_id as $trip) {
+            $sql = "SELECT id_user FROM user_history WHERE id_trip = :tripId AND id_user != :userId";
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute(['tripId' => $trip, 'userId' => $userId]);
+            $user = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $users[] = $user;
+        }
+        $flatArray = array_reduce($users, function ($carry, $item) {
+            foreach ($item as $subItem) {
+                $carry[] = $subItem['id_user'];
+            }
+            return $carry;
+        }, []);
+        $uniqueArray = array_unique($flatArray);
+        foreach ($uniqueArray as $item) {
+            $sql = "SELECT name, email, picture FROM user WHERE id = :userId";
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute(['userId' => $item]);
+            $user = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $users[] = $user;
+            return $users;
+        }
+    }
+}
+function selectHobbys()
+{
+    global $pdo;
+    $sql = 'SELECT hobby FROM hobbies';
+    $stmt = $pdo->prepare($sql);
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
