@@ -54,18 +54,38 @@ require_once "php_script/ConnectDB.php";
                     </div>
                 </div>
                 <div class="block-news__info">
-                    <?php if (!empty($_SESSION['user'])) {
-                        var_dump(selectTripforUser($_SESSION['user']['id']));
-                    } ?>
+                   
+                <? if (!empty($_SESSION['user'])) {?>
+                        
+                   
                     <?
-                    for ($i = 1; $i <= 10; $i++) {
+                    $trip = selectTripforUser($_SESSION['user']['id']);
+                    
+                    foreach ($trip as $elem) {
                         ?>
                         <div class="block-tour__items">
-                            Text <?= $i; ?>
+                             <p><?=$elem['name']?></p>
+                             <img src="<?=$elem['picture']?>">
+                             <p><?=$elem['address']?></p>
+                             
                         </div>
                     <?
                     }
                     ?>
+                    <? } else {
+                    $trip = selectTrip();
+                    foreach ($trip as $elem) {
+                        ?>
+                        <div class="block-tour__items">
+                             <p><?=$elem['name']?></p>
+                             <img src="<?=$elem['picture']?>">
+                             <p><?=$elem['address']?></p>
+                             
+                        </div>
+                    <?
+                    }
+                    ?>
+                        <?}?>
                 </div>
             </div>
             <div class="block-news block-news__height">

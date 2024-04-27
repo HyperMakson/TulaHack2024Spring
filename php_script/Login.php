@@ -9,7 +9,7 @@ if (!empty($_POST['password']) and !empty($_POST['login'])) {
     $user = selectUser($login, $password);
     if (!empty($user)) {
         $_SESSION['user'] = $user;
-        redirect('../index.php');
+        redirect('../profile/user.php');
     } else {
         redirect('/logreg/login.php');
     }

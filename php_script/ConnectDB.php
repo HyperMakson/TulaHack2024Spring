@@ -44,12 +44,9 @@ function selectTripforUser(int $userId)
             $stmt = $pdo->prepare($sql);
             $stmt->execute(['tripId' => $trip]);
             $trip = $stmt->fetch(PDO::FETCH_ASSOC);
-            $trip[] = $trip;
+            $trips[] = $trip;
         }
-        return $trip;
-    } else {
-        return "PUSTO";
-    }
+        return $trips;} 
 }
 
 function selectReviews(){
