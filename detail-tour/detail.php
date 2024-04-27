@@ -12,7 +12,7 @@ require_once "../php_script/ConnectDB.php";
     if (isset($_GET["tour"])) {
         $id = (int) $_GET["tour"];
         $tour = selectTripbyId($id);
-        ?>
+    ?>
         <div class="detail-page__container">
             <div class="detail-name"><?= $tour["name"]; ?></div>
             <div class="detail-main__container">
@@ -24,7 +24,10 @@ require_once "../php_script/ConnectDB.php";
                         <p><?= $tour["address"]; ?></p>
                     </div>
                     <div class="detail-btn">
-                        <input type="button" value="Добавить к себе">
+                        <form method="POST" active="../php_script/AddTriptoUser.php">
+                            <input type="hidden" name="active" value="<?=$id?>">
+                            <input type="submit" value="Добавить к себе">
+                        </form>
                     </div>
                     <div class="detail-info">
                         <p><?= $tour["description"]; ?></p>
@@ -34,7 +37,7 @@ require_once "../php_script/ConnectDB.php";
         </div>
     <?
     } else {
-        ?>
+    ?>
         <div class="detail-page__container">
             <p>Такого тура нет</p>
         </div>
