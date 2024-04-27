@@ -1,6 +1,7 @@
 <?
 require_once $_SERVER["DOCUMENT_ROOT"] . '/include_headfoot/header.php';
 require_once '../php_script/Helper.php';
+require_once "../php_script/ConnectDB.php";
 chekNotAuth();
 ?>
 
@@ -48,8 +49,22 @@ chekNotAuth();
                 <h1>История</h1>
                 <div class="account-container-inform">
                     <div class="account-field">
-                        <h2>Имя</h2>
-                        <span><?= $_SESSION['user']['name'] ?></span>
+                    <?
+                            $trip = selectTriptoUser($_SESSION['user']['id']);
+                            if (!empty($trip)) {
+                                foreach ($trip as $elem) {
+                                    ?>
+                                    <div class="block-tour__items">
+                                        <img src="<?= $elem['picture'] ?>" class="block-tour__picture">
+                                        <div class="block-tour__info-container">
+                                            <a href="/detail-tour/detailforlk.php?tour=<?= $elem['id']; ?>"><?= $elem['name'] ?></a>
+                                            <p><?= $elem['address'] ?></p>
+                                        </div>
+                                    </div>
+                                <?
+                                }}?>
+                    
+                        
                     </div>
                 </div>
             </div>

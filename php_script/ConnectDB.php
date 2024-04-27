@@ -154,3 +154,19 @@ function addTriptoUser(int $tripId, int $userId){
     $stmt = $pdo->prepare($sql);
     return $stmt->execute(["tripId"=> $tripId,"userId"=> $userId]);}
 }
+
+function selectTriptoUser(int $userId){
+    global $pdo;
+    $sql = "SELECT id_trip FROM user_history WHERE id_user = :userId";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute(["userId"=> $userId]);
+    $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    foreach ($res as $item) {
+        $sql = "SELECT * FROM trip WHERE id = :tripId";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute(['tripId' => $item['id_trip']]);
+        $trip = $stmt->fetch(PDO::FETCH_ASSOC);
+        $trips[] = $trip;
+        
+    }return $trips;
+}
