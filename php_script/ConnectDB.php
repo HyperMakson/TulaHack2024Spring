@@ -170,3 +170,17 @@ function selectTriptoUser(int $userId){
         
     }return $trips;
 }
+function addReviews(int $userId, int $tripId, string $text){
+    global $pdo;
+    $sql = 'INSERT INTO reviews (id_user, id_trip, text) VALUES (:userId, :tripId, :text)';
+    $stmt = $pdo->prepare($sql);
+    return  $stmt->execute(['userId'=> $userId, 'tripId'=> $tripId,'text'=> $text]);
+}
+
+function selectReviewsbyUser(int $userId){
+    global $pdo;
+    $sql = 'SELECT trip.name, reviews.text FROM trip JOIN reviews ON trip.id = reviews.id_trip WHERE reviews.id_user = :userId';
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute(['userId'=> $userId]);
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}

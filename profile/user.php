@@ -37,8 +37,7 @@ chekNotAuth();
                 <h1>Ваши отзывы</h1>
                 <div class="account-container-inform">
                     <div class="account-field">
-                        <h2>Имя</h2>
-                        <span><?= $_SESSION['user']['name'] ?></span>
+                        <?= var_dump(selectReviewsbyUser($_SESSION['user']['id']))?>
                     </div>
                 </div>
             </div>
