@@ -75,6 +75,32 @@ return $stmt->fetchAll(PDO::FETCH_ASSOC);*/
 $sql = "SELECT id_trip FROM user_history WHERE id_user = :userId";
 $stmt = $pdo->prepare($sql);
 $stmt->execute(['userId' => $userId]);
-$arr_id_trip = $stmt->fetch(PDO::FETCH_ASSOC);
-
+$arr_id_trip = $stmt->fetchAll(PDO::FETCH_ASSOC);
+foreach ($arr_id_trip as $row) {
+    $trip_id[] = $row['id_trip'];
 }
+if (isset($trip_id)) {
+    foreach ($trip_id as $trip) {
+        $sql = "SELECT id_user FROM user_history WHERE id_trip = :tripId AND id_user != :userId";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute(['tripId' => $trip, 'userId'=> $userId]);
+        $user = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $users[] = $user;
+    }
+    $flatArray = array_reduce($users, function($carry, $item) {
+        foreach($item as $subItem) {
+            $carry[] = $subItem['id_user'];
+        }
+        return $carry;
+    }, []);
+    $uniqueArray = array_unique($flatArray);
+    foreach ( $uniqueArray as $item) {
+    $sql = "SELECT name, email, picture FROM user WHERE id = :userId";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute(['userId'=> $item]);
+    $user = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $users[] = $user;
+    return $users;}
+
+
+}}
