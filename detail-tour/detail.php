@@ -8,6 +8,7 @@ require_once "../php_script/ConnectDB.php";
     <?
     require_once $_SERVER["DOCUMENT_ROOT"] . '/include_headfoot/header_inner-page.php';
     ?>
+    
     <?
     if (isset($_GET["tour"])) {
         $id = (int) $_GET["tour"];
@@ -24,10 +25,12 @@ require_once "../php_script/ConnectDB.php";
                         <p><?= $tour["address"]; ?></p>
                     </div>
                     <div class="detail-btn">
+                        <? if (isset($_SESSION['user'])){?>
                         <form method="POST" action="../php_script/AddTriptoUser.php">
                             <input type="hidden" name="active" value="<?=$id?>">
                             <input type="submit" value="Добавить к себе">
                         </form>
+                    <?}?>
                     </div>
                     <div class="detail-info">
                         <p><?= $tour["description"]; ?></p>
@@ -47,6 +50,7 @@ require_once "../php_script/ConnectDB.php";
     <?
     require_once $_SERVER["DOCUMENT_ROOT"] . '/include_headfoot/footer.php';
     ?>
+    
 </body>
 
 </html>
