@@ -53,11 +53,11 @@ chekAuth();
                         <div class="input-fields input-login input-hobby">
                             <?
                             $hobbys = selectHobbys();
-                            foreach($hobbys as $hobby){
+                            foreach ($hobbys as $hobby) {
                                 ?>
                                 <div class="input-hobby__item">
-                                    <input type="checkbox" name="hobby[]" id="hobby" value="val <?= $i; ?>">
-                                    <label for="hobby">Scales</label>
+                                    <input type="checkbox" name="hobby[]" id="hobby" value="<?= $hobby; ?>">
+                                    <label for="hobby"><?= $hobby; ?></label>
                                 </div>
                             <?
                             }
