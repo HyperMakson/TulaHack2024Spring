@@ -47,7 +47,9 @@
                 <nav>
                     <a class="footer-contacts__blogs-type" href="#">Путешествие в Тайланд</a>
                     <a class="footer-contacts__blogs-type" href="#">Путешествие в Китай</a>
+                    <br>
                     <a class="footer-contacts__blogs-type" href="#">Путешествие по России</a>
+                    <br>
                     <a class="footer-contacts__blogs-type" href="#">Путешествие в ОАЭ</a>
                 </nav>
             </nav>
