@@ -1,12 +1,8 @@
-<!DOCTYPE html>
-<html lang="ru">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/style.css">
-    <title>TulaHack</title>
-</head>
+<?
+require_once $_SERVER["DOCUMENT_ROOT"] . '/include_headfoot/header.php';
+require_once 'php_script/Helper.php';
+require_once "php_script/ConnectDB.php";
+?>
 
 <body>
     <div class="header">
@@ -17,22 +13,31 @@
             <div class="navbar__logo">
                 <p>LOGO</p>
             </div>
+
             <div class="navbar__link">
+                <?php if (empty($_SESSION['user'])) {
+                    echo '
                 <div class="link__log">
-                    <a href="">Вход</a>
+                    <a href="logreg/login.php">Вход</a>
                 </div>
                 <div class="link__reg">
-                    <a href="">Регистрация</a>
-                </div>
+                    <a href="logreg/register.php">Регистрация</a>
+                </div>';
+                } else {
+                    echo '<a href="php_script/Exit.php">Выход</a>';
+                } ?>
             </div>
         </div>
     </div>
     <div class="main">
         <div class="main-logo">
             <div class="main-container">
+                <?php if (!empty($_SESSION['user'])) {
+                    echo '
                 <div class="main-text__container">
-                    <p class="main-text">Личный кабинет туриста</p>
-                </div>
+                    <a href="profile/user.php"><p class="main-text">Личный кабинет туриста</p></a>
+                </div>';
+                } ?>
             </div>
             <div class="history-travel">
                 <p>Здесь поиск</p>
@@ -50,10 +55,9 @@
             </div>
         </div>
     </div>
-    <div class="footer">
-        <p>FOOTER</p>
-    </div>
-    <script src="scripts/script.js"></script>
+    <?
+    require_once $_SERVER["DOCUMENT_ROOT"] . '/include_headfoot/footer.php';
+    ?>
 </body>
 
 </html>
