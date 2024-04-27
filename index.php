@@ -44,6 +44,8 @@ require_once "php_script/ConnectDB.php";
             </div>
             <div class="history-travel">
                 <p>Здесь поиск</p>
+                <input type="text" id="search" name="search_name">
+                <input type="submit" value="Найти">
             </div>
         </div>
         <div class="main-content">
@@ -63,9 +65,8 @@ require_once "php_script/ConnectDB.php";
                                 <div class="block-tour__items">
                                     <img src="<?= $elem['picture'] ?>" class="block-tour__picture">
                                     <div class="block-tour__info-container">
-                                        <p><?= $elem['name'] ?></p>
+                                        <a href="/detail-tour/detail.php?tour=<?= $elem['id']; ?>"><?= $elem['name'] ?></a>
                                         <p><?= $elem['address'] ?></p>
-                                        <a href="/detail-tour/detail.php?tour=<?= $elem['id']; ?>">Детальная</a>
                                     </div>
                                 </div>
                             <?
@@ -77,9 +78,8 @@ require_once "php_script/ConnectDB.php";
                                 <div class="block-tour__items">
                                     <img src="<?= $elem['picture'] ?>" class="block-tour__picture">
                                     <div class="block-tour__info-container">
-                                        <p><?= $elem['name'] ?></p>
+                                        <a href="/detail-tour/detail.php?tour=<?= $elem['id']; ?>"><?= $elem['name'] ?></a>
                                         <p><?= $elem['address'] ?></p>
-                                        <a href="/detail-tour/detail.php?tour=<?= $elem['id']; ?>">Детальная</a>
                                     </div>
                                 </div>
                             <? }
@@ -91,9 +91,8 @@ require_once "php_script/ConnectDB.php";
                             <div class="block-tour__items">
                                 <img src="<?= $elem['picture'] ?>" class="block-tour__picture">
                                 <div class="block-tour__info-container">
-                                    <p><?= $elem['name'] ?></p>
+                                    <a href="/detail-tour/detail.php?tour=<?= $elem['id']; ?>"><?= $elem['name'] ?></a>
                                     <p><?= $elem['address'] ?></p>
-                                    <a href="/detail-tour/detail.php?tour=<?= $elem['id']; ?>">Детальная</a>
                                 </div>
                             </div>
                         <?
