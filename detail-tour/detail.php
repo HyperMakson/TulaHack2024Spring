@@ -24,7 +24,7 @@ require_once "../php_script/ConnectDB.php";
                         <p><?= $tour["address"]; ?></p>
                     </div>
                     <div class="detail-btn">
-                        <form method="POST" active="../php_script/AddTriptoUser.php">
+                        <form method="POST" action="../php_script/AddTriptoUser.php">
                             <input type="hidden" name="active" value="<?=$id?>">
                             <input type="submit" value="Добавить к себе">
                         </form>
