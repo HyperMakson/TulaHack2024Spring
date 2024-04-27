@@ -55,7 +55,7 @@ require_once "php_script/ConnectDB.php";
         </div>
         <div class="main-content">
             <div class="block-news block-news__margin">
-                <p>Здесь выводит туры</p>
+            <?php if (!empty($_SESSION['user'])){  var_dump(selectTripforUser($_SESSION['user']['id']));}?>
             </div>
             <div class="block-news">
                 <p>Здесь что-нибудь выводить</p>
