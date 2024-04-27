@@ -62,10 +62,11 @@ require_once "php_script/ConnectDB.php";
                                 ?>
                                 <div class="block-tour__items">
                                     <img src="<?= $elem['picture'] ?>" class="block-tour__picture">
-                                    <p><?= $elem['name'] ?></p>
-                                    <p><?= $elem['address'] ?></p>
-                                    <p>Id: <?= $elem['id']; ?></p>
-                                    <a href="/detail-tour/detail.php?<?= $elem['id']; ?>">Детальная</a>
+                                    <div class="block-tour__info-container">
+                                        <p><?= $elem['name'] ?></p>
+                                        <p><?= $elem['address'] ?></p>
+                                        <a href="/detail-tour/detail.php?<?= $elem['id']; ?>">Детальная</a>
+                                    </div>
                                 </div>
                             <?
                             }
@@ -75,10 +76,11 @@ require_once "php_script/ConnectDB.php";
                                 ?>
                                 <div class="block-tour__items">
                                     <img src="<?= $elem['picture'] ?>" class="block-tour__picture">
-                                    <p><?= $elem['name'] ?></p>
-                                    <p><?= $elem['address'] ?></p>
-                                    <p>Id: <?= $elem['id']; ?></p>
-                                    <a href="/detail-tour/detail.php?<?= $elem['id']; ?>">Детальная</a>
+                                    <div class="block-tour__info-container">
+                                        <p><?= $elem['name'] ?></p>
+                                        <p><?= $elem['address'] ?></p>
+                                        <a href="/detail-tour/detail.php?<?= $elem['id']; ?>">Детальная</a>
+                                    </div>
                                 </div>
                             <? }
                         } ?>
@@ -88,10 +90,11 @@ require_once "php_script/ConnectDB.php";
                             ?>
                             <div class="block-tour__items">
                                 <img src="<?= $elem['picture'] ?>" class="block-tour__picture">
-                                <p><?= $elem['name'] ?></p>
-                                <p><?= $elem['address'] ?></p>
-                                <p>Id: <?= $elem['id']; ?></p>
-                                <a href="/detail-tour/detail.php?<?= $elem['id']; ?>">Детальная</a>
+                                <div class="block-tour__info-container">
+                                    <p><?= $elem['name'] ?></p>
+                                    <p><?= $elem['address'] ?></p>
+                                    <a href="/detail-tour/detail.php?<?= $elem['id']; ?>">Детальная</a>
+                                </div>
                             </div>
                         <?
                         }
