@@ -554,3 +554,9 @@ h2 {
     color: #000;
     
 }
+.footer-nav{
+    margin-top: 2%;
+    margin-bottom: 2%;
+    margin-left: 10%;
+    align-items: center;
+}
