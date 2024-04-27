@@ -5,32 +5,20 @@ chekNotAuth();
 ?>
 
 <body>
-    <header>
-        <!-- Навигация сверху -->
-        <div class="navbar">
-            <nav>
-                <a class="navbar-airplane" href="#">
-                    <img src="../images/profile/airplane.svg" alt="">
-                    <span>Найти транспорт</span>
-                </a>
-                <a class="navbar-sleep" href="#">
-                    <img src="../images/profile/bed.svg">
-                    <span>Найти отель</span>
-                </a>
-                <a class="navbar-logo" href="#">
-                    <img src="../images/profile/logo.svg">
-                </a>
-                <a class="navbar-favourites" href="#">
-                    <img src="../images/profile/like.svg">
-                    <span>Избранное</span>
-                </a>
-                <a class="navbar-profile" href="#">
-                    <img src="../images/profile/profile-photo.png">
-                    <span><?= $_SESSION['user']['name'] ?></span>
-                </a>
-            </nav>
-        </div>
-    </header>
+    <!-- Навигация сверху -->
+    <div class="navbar">
+        <a class="navbar-logo" href="/">
+            <img src="../images/profile/logo.svg">
+        </a>
+        <a class="navbar-favourites" href="#">
+            <img src="../images/profile/like.svg">
+            <span>Избранное</span>
+        </a>
+        <a class="navbar-profile" href="#">
+            <img src="../images/avatar.svg">
+            <span><?= $_SESSION['user']['name'] ?></span>
+        </a>
+    </div>
 
     <!-- Цветной прямоугольник и фотка -->
     <div class="middle-container">
