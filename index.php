@@ -107,7 +107,7 @@ require_once "php_script/ConnectDB.php";
                     <?= var_dump(selectСompanion($_SESSION['user']['id'])) ?>
                 <? } ?>
             </div>
-            <div class="block-news block-news__height">
+            <div class="block-news block-news__height block-news__margin-bottom">
                 <?= var_dump(selectReviews()) ?>
             </div>
         </div>
