@@ -134,3 +134,11 @@ function selectTripbyId(int $tripId)
     $stmt->execute(["tripId"=> $tripId]);
     return $stmt->fetch(PDO::FETCH_ASSOC);
 }
+
+function searchTrip(string $string){
+    global $pdo;
+    $sql = "SELECT * FROM trip WHERE name LIKE '%$string%'";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
