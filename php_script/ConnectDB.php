@@ -10,7 +10,7 @@ try {
     echo "Error:" . $exception->getMessage();
 }
 
-function selectUser(string $userLogin, string $userPassword)
+function selectUser($userLogin, $userPassword)
 {
     global $pdo;
     $sql = "SELECT  id, name, email FROM user WHERE email = :userLogin AND password = :userPassword";
@@ -19,7 +19,7 @@ function selectUser(string $userLogin, string $userPassword)
     return $stmt->fetch(PDO::FETCH_ASSOC);
 }
 
-function addUser(string $userName, string $userLogin, string $userPassword, array $checkbox_values)
+function addUser($userName, $userLogin, $userPassword, $checkbox_values)
 {
     global $pdo;
     $sql = "INSERT user (name, email, password) VALUES (:userName, :userLogin, :userPassword)";
@@ -30,14 +30,14 @@ function addUser(string $userName, string $userLogin, string $userPassword, arra
     $stmt->execute(['userLogin' => $userLogin, 'userPassword' => $userPassword]);
     $user_id = $stmt->fetch(PDO::FETCH_ASSOC);
     foreach ($checkbox_values as $value) {
-    $sql = "INSERT INTO `user_hobby`(`id_user`, `id_hobby`) VALUES (:userId,:hobbyId)";
-    $stmt = $pdo->prepare($sql);
-    $stmt->execute(["userId"=> $user_id['id'], "hobbyId" => $value]);
+        $sql = "INSERT INTO `user_hobby`(`id_user`, `id_hobby`) VALUES (:userId,:hobbyId)";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute(["userId" => $user_id['id'], "hobbyId" => $value]);
     }
     return 1;
 
 }
-function selectTripforUser(int $userId)
+function selectTripforUser($userId)
 {
     global $pdo;
     $sql = "SELECT th.id_trip FROM trip_hobby th JOIN user_hobby uh ON th.id_hobby = uh.id_hobby WHERE uh.id_user = :userId";
@@ -47,7 +47,8 @@ function selectTripforUser(int $userId)
 
     foreach ($arr_id_trip as $row) {
         $trip_id[] = $row['id_trip'];
-    };
+    }
+    ;
     if (isset($trip_id)) {
         foreach ($trip_id as $trip) {
             $sql = "SELECT * FROM trip WHERE id = :tripId";
@@ -112,16 +113,17 @@ function selectHobbys()
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
-function selectTripbyId(int $tripId)
+function selectTripbyId($tripId)
 {
     global $pdo;
     $sql = "SELECT * FROM trip WHERE id = :tripId";
     $stmt = $pdo->prepare($sql);
-    $stmt->execute(["tripId"=> $tripId]);
+    $stmt->execute(["tripId" => $tripId]);
     return $stmt->fetch(PDO::FETCH_ASSOC);
 }
 
-function searchTrip(string $string){
+function searchTrip($string)
+{
     global $pdo;
     $sql = "SELECT * FROM trip WHERE name LIKE '%$string%'";
     $stmt = $pdo->prepare($sql);
@@ -129,23 +131,26 @@ function searchTrip(string $string){
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
-function addTriptoUser(int $tripId, int $userId){
+function addTriptoUser($tripId, $userId)
+{
     global $pdo;
     $sql = "SELECT * FROM user_history WHERE id_user = :userId AND id_trip = :tripId";
     $stmt = $pdo->prepare($sql);
-    $stmt->execute(["tripId"=> $tripId,"userId"=> $userId]);
+    $stmt->execute(["tripId" => $tripId, "userId" => $userId]);
     $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    if(empty($res)){
-    $sql = "INSERT INTO user_history (`id_user`, `id_trip`) VALUES (:userId, :tripId)";
-    $stmt = $pdo->prepare($sql);
-    return $stmt->execute(["tripId"=> $tripId,"userId"=> $userId]);}
+    if (empty($res)) {
+        $sql = "INSERT INTO user_history (`id_user`, `id_trip`) VALUES (:userId, :tripId)";
+        $stmt = $pdo->prepare($sql);
+        return $stmt->execute(["tripId" => $tripId, "userId" => $userId]);
+    }
 }
 
-function selectTriptoUser(int $userId){
+function selectTriptoUser($userId)
+{
     global $pdo;
     $sql = "SELECT id_trip FROM user_history WHERE id_user = :userId";
     $stmt = $pdo->prepare($sql);
-    $stmt->execute(["userId"=> $userId]);
+    $stmt->execute(["userId" => $userId]);
     $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
     foreach ($res as $item) {
         $sql = "SELECT * FROM trip WHERE id = :tripId";
@@ -153,20 +158,23 @@ function selectTriptoUser(int $userId){
         $stmt->execute(['tripId' => $item['id_trip']]);
         $trip = $stmt->fetch(PDO::FETCH_ASSOC);
         $trips[] = $trip;
-        
-    }return $trips;
+
+    }
+    return $trips;
 }
-function addReviews(int $userId, int $tripId, string $text){
+function addReviews($userId, $tripId, $text)
+{
     global $pdo;
     $sql = 'INSERT INTO reviews (id_user, id_trip, text) VALUES (:userId, :tripId, :text)';
     $stmt = $pdo->prepare($sql);
-    return  $stmt->execute(['userId'=> $userId, 'tripId'=> $tripId,'text'=> $text]);
+    return $stmt->execute(['userId' => $userId, 'tripId' => $tripId, 'text' => $text]);
 }
 
-function selectReviewsbyUser(int $userId){
+function selectReviewsbyUser($userId)
+{
     global $pdo;
     $sql = 'SELECT trip.name, reviews.text FROM trip JOIN reviews ON trip.id = reviews.id_trip WHERE reviews.id_user = :userId';
     $stmt = $pdo->prepare($sql);
-    $stmt->execute(['userId'=> $userId]);
+    $stmt->execute(['userId' => $userId]);
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
