@@ -339,6 +339,7 @@ h2 {
 .swiper {
     width: 100%;
     height: 100%;
+    border-radius: 30px;
 }
 
 .img-slider {
@@ -435,20 +436,20 @@ h2 {
     display: flex;
     flex-direction: row;
     align-items: center;
-    
+
 }
 
 .footer-contacts {
     display: flex;
     flex-direction: row;
     align-items: center;
-    
+
 }
 
 .footer-contacts__item {
     width: 100%;
     padding: 0 40px;
-    
+
 }
 
 .footer-contacts__destinations {
@@ -460,7 +461,7 @@ h2 {
     font-size: 16px;
     line-height: 20px;
     color: #000;
-    
+
 }
 
 .footer-contacts__destinations-type {
@@ -471,7 +472,7 @@ h2 {
     font-size: 16px;
     line-height: 20px;
     color: #000;
-    
+
 }
 
 .footer-contacts__activities {
@@ -482,7 +483,7 @@ h2 {
     font-size: 16px;
     line-height: 20px;
     color: #000;
-    
+
 }
 
 .footer-contacts__destinations-type {
@@ -497,7 +498,7 @@ h2 {
     flex-direction: row;
     justify-content: left;
     align-items: center;
-    
+
 }
 
 .footer-contacts__blogs {
@@ -508,7 +509,7 @@ h2 {
     font-size: 16px;
     line-height: 20px;
     color: #000;
-    
+
 }
 
 .footer-contacts__blogs-type {
@@ -519,7 +520,7 @@ h2 {
     font-size: 16px;
     line-height: 20px;
     color: #000;
-    
+
 }
 
 .footer-logo-social {
@@ -530,7 +531,7 @@ h2 {
     font-size: 16px;
     line-height: 20px;
     color: #000;
-    
+
 }
 
 .footer-contacts__aboutus {
@@ -541,7 +542,7 @@ h2 {
     font-size: 16px;
     line-height: 20px;
     color: #000;
-    
+
 }
 
 .footer-contacts__aboutus-type {
@@ -552,7 +553,7 @@ h2 {
     font-size: 16px;
     line-height: 20px;
     color: #000;
-    
+
 }
 
 .footer-contacts__contactus {
@@ -563,7 +564,7 @@ h2 {
     font-size: 16px;
     line-height: 20px;
     color: #000;
-    
+
 }
 
 .footer-contacts__contactus-type {
@@ -574,5 +575,5 @@ h2 {
     font-size: 16px;
     line-height: 20px;
     color: #000;
-    
+
 }

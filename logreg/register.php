@@ -8,7 +8,23 @@ chekAuth();
     <div class="log-form">
         <div class="foto__container">
             <div class="foto">
-                ggkfjgjfk
+                <div class="swiper-container">
+                    <div class="swiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img src="../images/slider/img_slider1.jpg" alt="Slide" class="img-slider">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="../images/slider/img_slider2.jpg" alt="Slide" class="img-slider">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="../images/slider/img_slider1.jpg" alt="Slide" class="img-slider">
+                            </div>
+                            ...
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="log__container">
@@ -41,6 +57,7 @@ chekAuth();
             </div>
         </div>
     </div>
+    <script src="script_logreg.js"></script>
 </body>
 
 </html>
