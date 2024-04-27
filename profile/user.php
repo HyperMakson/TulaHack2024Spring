@@ -1,6 +1,7 @@
 <?
 require_once $_SERVER["DOCUMENT_ROOT"] . '/include_headfoot/header.php';
 require_once '../php_script/Helper.php';
+chekNotAuth();
 ?>
 
 <body>
