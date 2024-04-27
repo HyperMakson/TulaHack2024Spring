@@ -9,7 +9,7 @@ $picture = $_POST['picture'];
 
 if (!empty($_POST['password']) and !empty($_POST['login']) and !empty($_POST['name'])) {
     addUser($name, $login, md5($password), $picture);
-    redirect('/TulaHack2024Spring/login.php');
+    redirect('../logreg/login.php');
 } else {
-    redirect('/TulaHack2024Spring//Registr.php');
+    redirect('../register.php');
 }

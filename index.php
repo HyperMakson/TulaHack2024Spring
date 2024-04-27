@@ -39,7 +39,7 @@ require_once "php_script/ConnectDB.php";
         <div class="main-logo">
             <div class="main-container">
                 <div class="main-text__container">
-                    <p class="main-text">Личный кабинет туриста</p>
+                    <p class="main-text">Поиск туров и попутчиков</p>
                 </div>
             </div>
             <div class="history-travel">
