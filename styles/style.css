@@ -473,41 +473,15 @@ h2 {
 }
 
 .account-container>.account-container-inform {
-    border: solid #fff;
+    padding: 10px;
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.5);
 }
 
-.account-name {
-    padding-left: 15px;
-    padding-top: 20px;
-}
-
-.account-email {
-    padding-left: 15px;
-    padding-top: 20px;
-}
-
-.account-password {
-    padding-left: 15px;
-    padding-top: 20px;
-}
-
-.account-phone_number {
-    padding-left: 15px;
-    padding-top: 20px;
-}
-
-.account-adress {
-    padding-left: 15px;
-    padding-top: 20px;
-}
-
-.account-birth {
-    padding-left: 15px;
-    padding-top: 20px;
-    padding-bottom: 20px;
+.account-field {
+    padding: 10px 25px;
+    color: rgba(17, 34, 17, 1);
 }
 
 .account-container-inform span {
@@ -516,6 +490,20 @@ h2 {
     font-weight: 500;
     line-height: 50px;
 }
+
+.profile__link-logout {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    color: rgba(17, 34, 17, 1);
+    transition: all 0.3s ease-in-out;
+}
+
+.profile__link-logout:hover {
+    color: rgba(17, 34, 17, 0.5);
+}
+
+/*Нижняя часть*/
 
 .footer {
     background-color: #8DD3BB;
