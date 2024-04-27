@@ -32,7 +32,7 @@ chekAuth();
                 <div class="log-name__container">
                     <p class="log-name">Регистрация</p>
                 </div>
-                <form action="../php_script/Registr.php" method="POST">
+                <form action="../php_script/Registr.php" method="POST" class="form-reg">
                     <div class="login__container">
                         <label for="input-login" class="upper-text__log-form">Имя</label>
                         <input type="text" class="input-fields input-login" id="name" name="name" required>
@@ -52,7 +52,7 @@ chekAuth();
                             for ($i = 1; $i <= 10; $i++) {
                                 ?>
                                 <div class="input-hobby__item">
-                                    <input type="checkbox" name="hobby" id="hobby" required>
+                                    <input type="checkbox" name="hobby[]" id="hobby" value="val <?= $i; ?>">
                                     <label for="hobby">Scales</label>
                                 </div>
                             <?

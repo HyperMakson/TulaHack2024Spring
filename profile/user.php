@@ -25,7 +25,8 @@ chekNotAuth();
         <div class="middle-rectangle">
         </div>
         <div class="middle-profile_photo">
-            <img src="<?= $_SESSION['user']['picture'] ?>">
+            <img src="../images/avatar.png">
+            <?/*<?= $_SESSION['user']['picture'] ?>*/ ?>
             <span><?= $_SESSION['user']['name'] ?></span>
             <span><?= $_SESSION['user']['email'] ?></span>
         </div>

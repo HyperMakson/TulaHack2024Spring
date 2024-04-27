@@ -389,6 +389,7 @@ h2 {
     align-items: center;
     overflow: hidden;
     padding: 10px;
+    height: 100%;
 }
 
 .input-hobby__item {

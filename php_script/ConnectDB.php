@@ -19,7 +19,7 @@ function selectUser(string $userLogin, string $userPassword)
     return $stmt->fetch(PDO::FETCH_ASSOC);
 }
 
-function addUser(string $userName, string $userLogin, string $userPassword)
+function addUser(string $userName, string $userLogin, string $userPassword, array $checkbox_values)
 {
     global $pdo;
     $sql = "INSERT user (name, email, password) VALUES (:userName, :userLogin, :userPassword)";
