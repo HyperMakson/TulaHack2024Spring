@@ -5,7 +5,6 @@ require_once "../php_script/ConnectDB.php";
 ?>
 
 <body>
-
     <div class="detail-name">Велопрогулки по Карельскому перешейку</div>
     <div class="detail-main__container">
         <div class="detail-picture">
