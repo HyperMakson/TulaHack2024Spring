@@ -1,6 +1,7 @@
 <?
 require_once $_SERVER["DOCUMENT_ROOT"] . '/include_headfoot/header.php';
 require_once '../php_script/Helper.php';
+chekNotAuth();
 ?>
 
 <body>
@@ -25,7 +26,7 @@ require_once '../php_script/Helper.php';
                 </a>
                 <a class="navbar-profile" href="#">
                     <img src="../images/profile/profile-photo.png">
-                    <span><?=$_SESSION['user']['name']?></span>
+                    <span><?= $_SESSION['user']['name'] ?></span>
                 </a>
             </nav>
         </div>
@@ -36,10 +37,13 @@ require_once '../php_script/Helper.php';
         <div class="middle-rectangle">
         </div>
         <div class="middle-profile_photo">
-            <img src="<?=$_SESSION['user']['picture']?>">
-            <span><?=$_SESSION['user']['name']?></span>
-            <span><?=$_SESSION['user']['email']?></span>
+            <img src="<?= $_SESSION['user']['picture'] ?>">
+            <span><?= $_SESSION['user']['name'] ?></span>
+            <span><?= $_SESSION['user']['email'] ?></span>
         </div>
+    </div>
+    <div>
+        <a href="../php_script/Exit.php">Выйти</a>
     </div>
 
     <!-- Навигация внутри профиля -->
@@ -54,11 +58,11 @@ require_once '../php_script/Helper.php';
         <h1>Аккаунт</h1>
         <div class="account-name">
             <h2>Имя</h2>
-            <span><?=$_SESSION['user']['name']?></span>
+            <span><?= $_SESSION['user']['name'] ?></span>
         </div>
         <div class="account-email">
             <h2>Email</h2>
-            <span><?=$_SESSION['user']['email']?></span>
+            <span><?= $_SESSION['user']['email'] ?></span>
         </div>
         <div class="account-phone_number">
             <h2>Номер телефона</h2>

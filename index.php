@@ -15,16 +15,23 @@ require_once "php_script/ConnectDB.php";
             </div>
 
             <div class="navbar__link">
-                <?php if (empty($_SESSION['user'])) {
-                    echo '
-                <div class="link__log">
-                    <a href="logreg/login.php">Вход</a>
-                </div>
-                <div class="link__reg">
-                    <a href="logreg/register.php">Регистрация</a>
-                </div>';
+                <? if (empty($_SESSION['user'])) {
+                    ?>
+                    <div class="link__logreg">
+                        <a href="logreg/login.php">Вход</a>
+                    </div>
+                    <div class="link__logreg">
+                        <a href="logreg/register.php">Регистрация</a>
+                    </div>
+                <?
                 } else {
-                    echo '<a href="php_script/Exit.php">Выход</a>';
+                    ?>
+                    <div class="link__logreg link__profile">
+                        <a href="profile/user.php">
+                            <div class="link__profile-avatar"></div>
+                        </a>
+                    </div>
+                <?
                 } ?>
             </div>
         </div>
@@ -45,7 +52,9 @@ require_once "php_script/ConnectDB.php";
         </div>
         <div class="main-content">
             <div class="block-news block-news__margin">
-                <p>Здесь выводит туры</p>
+                <?php if (!empty($_SESSION['user'])) {
+                    var_dump(selectTripforUser($_SESSION['user']['id']));
+                } ?>
             </div>
             <div class="block-news">
                 <p>Здесь что-нибудь выводить</p>
