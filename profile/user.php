@@ -23,44 +23,74 @@ chekNotAuth();
 
         <!-- Навигация внутри профиля -->
         <div class="navprofile-container">
-            <a class="navprofile-container-account" href="#">Аккаунт</a>
-            <a class="navprofile-container-history" href="#">История</a>
-            <a class="navprofile-container-payment" href="#">Методы оплаты</a>
+            <a class="navprofile-container-account" href="?sect=account">Аккаунт</a>
+            <a class="navprofile-container-history" href="?sect=history">История</a>
+            <a class="navprofile-container-payment" href="?sect=reviews">Ваши отзывы</a>
         </div>
 
         <!-- Основные данные аккаунта -->
-        <div class="account-container">
-            <h1>Аккаунт</h1>
-            <div class="account-container-inform">
-                <div class="account-field">
-                    <h2>Имя</h2>
-                    <span><?= $_SESSION['user']['name'] ?></span>
-                </div>
-                <div class="account-field">
-                    <h2>Email</h2>
-                    <span><?= $_SESSION['user']['email'] ?></span>
-                </div>
-                <div class="account-field">
-                    <h2>Пароль</h2>
-                    <span>*********</span>
-                </div>
-                <div class="account-field">
-                    <h2>Номер телефона</h2>
-                    <span>+79539527523</span>
-                </div>
-                <div class="account-field">
-                    <h2>Адрес</h2>
-                    <span>Россия, Тульская обл. г.Тула ул.Свободы д.35</span>
-                </div>
-                <div class="account-field">
-                    <h2>Дата рождения</h2>
-                    <span>14.07.2003</span>
-                </div>
-                <div class="account-field">
-                    <a href="../php_script/Exit.php" class="profile__link-logout">Выйти</a>
+        <?
+        if (isset($_GET['sect']) and $_GET['sect'] === "reviews") {
+            ?>
+            <div class="account-container">
+                <h1>Ваши отзывы</h1>
+                <div class="account-container-inform">
+                    <div class="account-field">
+                        <h2>Имя</h2>
+                        <span><?= $_SESSION['user']['name'] ?></span>
+                    </div>
                 </div>
             </div>
-        </div>
+        <?
+        } elseif (isset($_GET['sect']) and $_GET['sect'] === "history") {
+            ?>
+            <div class="account-container">
+                <h1>История</h1>
+                <div class="account-container-inform">
+                    <div class="account-field">
+                        <h2>Имя</h2>
+                        <span><?= $_SESSION['user']['name'] ?></span>
+                    </div>
+                </div>
+            </div>
+        <?
+        } else {
+            ?>
+            <div class="account-container">
+                <h1>Аккаунт</h1>
+                <div class="account-container-inform">
+                    <div class="account-field">
+                        <h2>Имя</h2>
+                        <span><?= $_SESSION['user']['name'] ?></span>
+                    </div>
+                    <div class="account-field">
+                        <h2>Email</h2>
+                        <span><?= $_SESSION['user']['email'] ?></span>
+                    </div>
+                    <div class="account-field">
+                        <h2>Пароль</h2>
+                        <span>*********</span>
+                    </div>
+                    <div class="account-field">
+                        <h2>Номер телефона</h2>
+                        <span>+79539527523</span>
+                    </div>
+                    <div class="account-field">
+                        <h2>Адрес</h2>
+                        <span>Россия, Тульская обл. г.Тула ул.Свободы д.35</span>
+                    </div>
+                    <div class="account-field">
+                        <h2>Дата рождения</h2>
+                        <span>14.07.2003</span>
+                    </div>
+                    <div class="account-field">
+                        <a href="../php_script/Exit.php" class="profile__link-logout">Выйти</a>
+                    </div>
+                </div>
+            </div>
+        <?
+        }
+        ?>
     </div>
 
     <!-- Навигация снизу -->
