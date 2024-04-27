@@ -22,17 +22,17 @@
         </div>
 
         <div class="footer-contacts">
-            <nav>
+            <nav class="footer-contacts__item">
                 <a class="footer-contacts__destinations" href="#">Направления туризма</a>
                 <nav>
-                    <a class="footer-contacts__destinations-type" href="#">Россия</a>
+                    <a class="footer-contacts__destinations-type" href="#" >Россия</a>
                     <a class="footer-contacts__destinations-type" href="#">Китай</a>
                     <a class="footer-contacts__destinations-type" href="#">Бразилия</a>
                     <a class="footer-contacts__destinations-type" href="#">ЮАР</a>
                 </nav>
             </nav>
 
-            <nav>
+            <nav class="footer-contacts__item">
                 <a class="footer-contacts__activities" href="#">События</a>
                 <nav>
                     <a class="footer-contacts__destinations-type" href="#">Северное сияние</a>
@@ -42,17 +42,19 @@
                 </nav>
             </nav>
 
-            <nav>
+            <nav class="footer-contacts__item">
                 <a class="footer-contacts__blogs" href="#">Блоги</a>
                 <nav>
                     <a class="footer-contacts__blogs-type" href="#">Путешествие в Тайланд</a>
                     <a class="footer-contacts__blogs-type" href="#">Путешествие в Китай</a>
+                    <br>
                     <a class="footer-contacts__blogs-type" href="#">Путешествие по России</a>
+                    <br>
                     <a class="footer-contacts__blogs-type" href="#">Путешествие в ОАЭ</a>
                 </nav>
             </nav>
 
-            <nav>
+            <nav class="footer-contacts__item">
                 <a class="footer-contacts__aboutus" href="#">О нас</a>
                 <nav>
                     <a class="footer-contacts__aboutus-type" href="#">Наша история</a>
@@ -60,7 +62,7 @@
                 </nav>
             </nav>
 
-            <nav>
+            <nav class="footer-contacts__item">
                 <a class="footer-contacts__contactus" href="#">Связаться с нами</a>
                 <nav>
                     <a class="footer-contacts__contactus-type" href="#">Email</a>

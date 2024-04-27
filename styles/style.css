@@ -290,7 +290,6 @@ h2 {
 .log__container {
     width: 50%;
     height: 100vh;
-    border: 1px solid black;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -322,7 +321,30 @@ h2 {
 .foto__container {
     width: 50%;
     height: 100vh;
-    border: 1px solid black;
+}
+
+.foto {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-container {
+    width: 100%;
+    height: 100%;
+    padding: 10%;
+    border-radius: 30px;
+    overflow: hidden;
+}
+
+.swiper {
+    width: 100%;
+    height: 100%;
+}
+
+.img-slider {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
 }
 
 .input-fields {
@@ -399,4 +421,164 @@ h2 {
     .foto__container {
         width: 100%;
     }
+}
+
+.footer {
+    background-color: #8DD3BB;
+
+    font-family: 'TradeGothic LT Extended';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    columns: 6;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+}
+
+.footer-contacts {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+}
+
+.footer-contacts__item {
+    width: 100%;
+    padding: 0 40px;
+    
+}
+
+.footer-contacts__destinations {
+
+    text-decoration: none;
+    font-family: 'TradeGothic LT Extended';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    color: #000;
+    
+}
+
+.footer-contacts__destinations-type {
+    text-decoration: none;
+    font-family: 'TradeGothic LT Extended';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    color: #000;
+    
+}
+
+.footer-contacts__activities {
+    text-decoration: none;
+    font-family: 'TradeGothic LT Extended';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    color: #000;
+    
+}
+
+.footer-contacts__destinations-type {
+    text-decoration: none;
+    font-family: 'TradeGothic LT Extended';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    color: #000;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    
+}
+
+.footer-contacts__blogs {
+    text-decoration: none;
+    font-family: 'TradeGothic LT Extended';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    color: #000;
+    
+}
+
+.footer-contacts__blogs-type {
+    text-decoration: none;
+    font-family: 'TradeGothic LT Extended';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    color: #000;
+    
+}
+
+.footer-logo-social {
+    text-decoration: none;
+    font-family: 'TradeGothic LT Extended';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    color: #000;
+    
+}
+
+.footer-contacts__aboutus {
+    text-decoration: none;
+    font-family: 'TradeGothic LT Extended';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    color: #000;
+    
+}
+
+.footer-contacts__aboutus-type {
+    text-decoration: none;
+    font-family: 'TradeGothic LT Extended';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    color: #000;
+    
+}
+
+.footer-contacts__contactus {
+    text-decoration: none;
+    font-family: 'TradeGothic LT Extended';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    color: #000;
+    
+}
+
+.footer-contacts__contactus-type {
+    text-decoration: none;
+    font-family: 'TradeGothic LT Extended';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    color: #000;
+    
+}
+.footer-nav{
+    margin-top: 2%;
+    margin-bottom: 2%;
+    margin-left: 10%;
+    align-items: center;
 }
