@@ -38,13 +38,6 @@ require_once "php_script/ConnectDB.php";
     <div class="main">
         <div class="main-logo">
             <div class="main-container">
-                <? if (!empty($_SESSION['user'])) {
-                    ?>
-                    <div class="main-text__container">
-                        <p class="main-text">Личный кабинет туриста</p>
-                    </div>
-                <?
-                } ?>
                 <div class="main-text__container">
                     <p class="main-text">Личный кабинет туриста</p>
                 </div>
@@ -55,7 +48,9 @@ require_once "php_script/ConnectDB.php";
         </div>
         <div class="main-content">
             <div class="block-news block-news__margin">
-            <?php if (!empty($_SESSION['user'])){  var_dump(selectTripforUser($_SESSION['user']['id']));}?>
+                <?php if (!empty($_SESSION['user'])) {
+                    var_dump(selectTripforUser($_SESSION['user']['id']));
+                } ?>
             </div>
             <div class="block-news">
                 <p>Здесь что-нибудь выводить</p>

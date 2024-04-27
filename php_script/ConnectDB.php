@@ -36,13 +36,18 @@ function selectTripforUser(int $userId)
 
     foreach ($arr_id_trip as $row) {
         $trip_id[] = $row['id_trip'];
-    };
-    foreach ($trip_id as $trip) {
-        $sql = "SELECT * FROM trip WHERE id = :tripId";
-        $stmt = $pdo->prepare($sql);
-        $stmt->execute(['tripId' => $trip]);
-        $trip = $stmt->fetch(PDO::FETCH_ASSOC);
-        $trip[] = $trip;
     }
-    return $trip;
+    ;
+    if (isset($trip_id)) {
+        foreach ($trip_id as $trip) {
+            $sql = "SELECT * FROM trip WHERE id = :tripId";
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute(['tripId' => $trip]);
+            $trip = $stmt->fetch(PDO::FETCH_ASSOC);
+            $trip[] = $trip;
+        }
+        return $trip;
+    } else {
+        return "PUSTO";
+    }
 }
