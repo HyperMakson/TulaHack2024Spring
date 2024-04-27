@@ -48,15 +48,31 @@ require_once "php_script/ConnectDB.php";
         </div>
         <div class="main-content">
             <div class="block-news block-news__margin">
-                <?php if (!empty($_SESSION['user'])) {
-                    var_dump(selectTripforUser($_SESSION['user']['id']));
-                } ?>
+                <div class="block-news__text-container">
+                    <div class="block-news__text">
+                        <p>Путешествия</p>
+                    </div>
+                </div>
+                <div class="block-news__info">
+                    <?php if (!empty($_SESSION['user'])) {
+                        var_dump(selectTripforUser($_SESSION['user']['id']));
+                    } ?>
+                    <?
+                    for ($i = 1; $i <= 10; $i++) {
+                        ?>
+                        <div class="block-tour__items">
+                            Text <?= $i; ?>
+                        </div>
+                    <?
+                    }
+                    ?>
+                </div>
             </div>
-            <div class="block-news">
+            <div class="block-news block-news__height">
                 <p>Здесь что-нибудь выводить</p>
             </div>
-            <div class="block-news">
-                <?= var_dump(selectReviews())?>
+            <div class="block-news block-news__height">
+                <?= var_dump(selectReviews()) ?>
             </div>
         </div>
     </div>

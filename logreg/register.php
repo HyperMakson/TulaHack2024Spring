@@ -5,12 +5,16 @@ chekAuth();
 ?>
 
 <body>
-
     <div class="log-form">
+        <div class="foto__container">
+            <div class="foto">
+                ggkfjgjfk
+            </div>
+        </div>
         <div class="log__container">
             <div class="log__container-for-form">
                 <div class="log-name__container">
-                    <p class="log-name">Вход</p>
+                    <p class="log-name">Регистрация</p>
                 </div>
                 <form action="../php_script/Registr.php" method="POST">
                     <div class="login__container">
@@ -28,18 +32,15 @@ chekAuth();
                     <div class="login__container">
                         <label for="input-login" class="upper-text__log-form">Фото профиля</label>
                         <input type="text" class="input-fields input-login" id="profile" name="picture" required>
-                        <input type="submit" class="input-fields input-submit" value="Войти">
+                    </div>
+                    <input type="submit" class="input-fields input-submit" value="Зарегистрироваться">
                 </form>
                 <div class="container-for-link-reg">
                     <p>Есть аккаунт? <a href="login.php" class="link-to-reg">Войти</a></p>
                 </div>
             </div>
         </div>
-        <div class="foto__container">
-            <div class="foto">
-                ggkfjgjfk
-            </div>
-        </div>
     </div>
+</body>
 
-    </html>
+</html>
