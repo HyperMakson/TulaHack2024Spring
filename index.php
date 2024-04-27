@@ -13,18 +13,24 @@ require_once "php_script/ConnectDB.php";
             <div class="navbar__logo">
                 <p>LOGO</p>
             </div>
-
             <div class="navbar__link">
-                <?php if (empty($_SESSION['user'])) {
-                    echo '
-                <div class="link__log">
-                    <a href="logreg/login.php">Вход</a>
-                </div>
-                <div class="link__reg">
-                    <a href="logreg/register.php">Регистрация</a>
-                </div>';
+                <? if (empty($_SESSION['user'])) {
+                    ?>
+                    <div class="link__logreg">
+                        <a href="logreg/login.php">Вход</a>
+                    </div>
+                    <div class="link__logreg">
+                        <a href="logreg/register.php">Регистрация</a>
+                    </div>
+                <?
                 } else {
-                    echo '<a href="php_script/Exit.php">Выход</a>';
+                    ?>
+                    <div class="link__logreg link__profile">
+                        <a href="profile/user.php">
+                            <div class="link__profile-avatar"></div>
+                        </a>
+                    </div>
+                <?
                 } ?>
             </div>
         </div>
@@ -32,12 +38,16 @@ require_once "php_script/ConnectDB.php";
     <div class="main">
         <div class="main-logo">
             <div class="main-container">
-                <?php if (!empty($_SESSION['user'])) {
-                    echo '
-                <div class="main-text__container">
-                    <a href="profile/user.php"><p class="main-text">Личный кабинет туриста</p></a>
-                </div>';
+                <? if (!empty($_SESSION['user'])) {
+                    ?>
+                    <div class="main-text__container">
+                        <p class="main-text">Личный кабинет туриста</p>
+                    </div>
+                <?
                 } ?>
+                <div class="main-text__container">
+                    <p class="main-text">Личный кабинет туриста</p>
+                </div>
             </div>
             <div class="history-travel">
                 <p>Здесь поиск</p>
