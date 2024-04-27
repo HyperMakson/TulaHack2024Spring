@@ -5,21 +5,42 @@ require_once "../php_script/ConnectDB.php";
 ?>
 
 <body>
-    <div class="detail-name">Велопрогулки по Карельскому перешейку</div>
-    <div class="detail-main__container">
-        <div class="detail-picture">
-            <img src="../images/main-page/hero.jpg">
+    <?
+    require_once $_SERVER["DOCUMENT_ROOT"] . '/include_headfoot/header_inner-page.php';
+    ?>
+    <?
+    if (isset($_GET["tour"])) {
+        $id = (int) $_GET["tour"];
+        $tour = selectTripbyId($id);
+        ?>
+        <div class="detail-page__container">
+            <div class="detail-name"><?= $tour["name"]; ?></div>
+            <div class="detail-main__container">
+                <div class="detail-picture">
+                    <img src="<?= $tour["picture"]; ?>" alt="<?= $tour["name"]; ?>">
+                </div>
+                <div class="detail-info__container">
+                    <div class="detail-address">
+                        <p><?= $tour["address"]; ?></p>
+                    </div>
+                    <div class="detail-btn">
+                        <input type="button" value="Добавить к себе">
+                    </div>
+                    <div class="detail-info">
+                        <p><?= $tour["description"]; ?></p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="detail-address">
-            <p>Адрес</p>
+    <?
+    } else {
+        ?>
+        <div class="detail-page__container">
+            <p>Такого тура нет</p>
         </div>
-        <div class="detail-info">
-            <p>Текстовая область</p>
-        </div>
-        <div class="detail-btn">
-            <input type="button" value="Добавить к себе">
-        </div>
-    </div>
+    <?
+    }
+    ?>
     <?
     require_once $_SERVER["DOCUMENT_ROOT"] . '/include_headfoot/footer.php';
     ?>
