@@ -56,8 +56,8 @@ chekAuth();
                             foreach ($hobbys as $hobby) {
                                 ?>
                                 <div class="input-hobby__item">
-                                    <input type="checkbox" name="hobby[]" id="hobby" value="<?= $hobby; ?>">
-                                    <label for="hobby"><?= $hobby; ?></label>
+                                    <input type="checkbox" name="hobby[]" id="hobby" value="<?= $hobby['id']; ?>">
+                                    <label for="hobby"><?= $hobby['hobby']; ?></label>
                                 </div>
                             <?
                             }
