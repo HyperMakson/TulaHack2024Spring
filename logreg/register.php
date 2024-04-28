@@ -49,6 +49,10 @@ chekAuth();
                         <input type="password" class="input-fields input-pass" id="pass" name="password" required>
                     </div>
                     <div class="login__container">
+                        <label for="input-login" class="upper-text__log-form">Ссылка на профиль</label>
+                        <input type="text" class="input-fields input-pass" id="link" name="link" required>
+                    </div>
+                    <div class="login__container">
                         <label for="input-login" class="upper-text__log-form">Увлечения</label>
                         <div class="input-fields input-login input-hobby">
                             <?

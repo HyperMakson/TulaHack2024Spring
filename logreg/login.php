@@ -11,7 +11,7 @@ chekAuth();
                 <div class="log-name__container">
                     <p class="log-name">Вход</p>
                 </div>
-                <form action="../php_script/Login.php" method="POST">
+                <form action="../php_script/Login.php" method="POST" class="form-log">
                     <div class="login__container">
                         <label for="input-login" class="upper-text__log-form">Email</label>
                         <input type="text" class="input-fields input-login" id="log" name="login" required>
