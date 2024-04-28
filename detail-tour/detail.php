@@ -25,6 +25,9 @@ require_once "../php_script/ConnectDB.php";
                         <div class="detail-address">
                             <p><?= $tour["address"]; ?></p>
                         </div>
+                        <div class="detail-info">
+                            <p><?= $tour["description"]; ?></p>
+                        </div>
                         <div class="detail-btn">
                             <? if (isset($_SESSION['user'])) { ?>
                                 <form method="POST" action="../php_script/AddTriptoUser.php">
@@ -32,9 +35,6 @@ require_once "../php_script/ConnectDB.php";
                                     <input type="submit" value="Добавить к себе">
                                 </form>
                             <? } ?>
-                        </div>
-                        <div class="detail-info">
-                            <p><?= $tour["description"]; ?></p>
                         </div>
                     </div>
                 </div>
