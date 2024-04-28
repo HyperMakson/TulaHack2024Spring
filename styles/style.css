@@ -1033,12 +1033,18 @@ h2 {
         flex-direction: column;
     }
 
+    .swiper-container {
+        padding: 5% 10%;
+    }
+
     .log__container {
         width: 100%;
+        height: 80vh;
     }
 
     .foto__container {
         width: 100%;
+        height: 80vh;
     }
 
     .detail-main__container {
