@@ -23,7 +23,10 @@ require_once "../php_script/ConnectDB.php";
                         <div class="detail-btn__container">
                             
                                
-                                    <a class="navprofile-container-account" href="?sect=reviews">Оставить отзыв</a>
+                        <form method="POST" action="addreview.php">
+                                    <input type="hidden" name="active" value="<?= $id ?>">
+                                    <input type="submit" value="Оставить отзыв" class="detail-btn">
+                                </form>
                                     
                             
                         </div>
