@@ -1,9 +1,9 @@
 <header class="header-inner">
     <!-- Навигация сверху -->
     <div class="navbar">
-        <a class="navbar-favourites" href="/">
+        <a class="navbar-favourites" href="../profile/user.php?sect=my-companion">
             <img src="../images/profile/like.svg">
-            <span>Избранное</span>
+            <span>Попутчики</span>
         </a>
         <a class="navbar-logo" href="/">
             <img src="../images/Group_1.svg">

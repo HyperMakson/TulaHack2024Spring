@@ -90,6 +90,35 @@ chekNotAuth();
                 </div>
             </div>
         <?
+        } elseif (isset($_GET['sect']) and $_GET['sect'] === "my-companion") {
+            ?>
+            <div class="account-container">
+                <h1>Попутчики</h1>
+                <div class="account-container-inform">
+                    <div class="account-field">
+                        <?
+                        try {
+                            $trip = selectTriptoUser($_SESSION['user']['id']);
+                            if (!empty($trip)) {
+                                foreach ($trip as $elem) {
+                                    ?>
+                                    <div class="block-tour__items">
+                                        <img src="<?= $elem['picture'] ?>" class="block-tour__picture">
+                                        <div class="block-tour__info-container">
+                                            <a href="/detail-tour/detailforlk.php?tour=<?= $elem['id']; ?>"><?= $elem['name'] ?></a>
+                                            <p><?= $elem['address'] ?></p>
+                                        </div>
+                                    </div>
+                                <?
+                                }
+                            } ?>
+                        <? } catch (Throwable $ex) {
+                            echo "Ошибка";
+                        } ?>
+                    </div>
+                </div>
+            </div>
+        <?
         } else {
             ?>
             <div class="account-container">
