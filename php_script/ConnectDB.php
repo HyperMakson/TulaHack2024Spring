@@ -113,6 +113,7 @@ function selectСompanion($userId)
                 }
             }
         }
+        $mass = [];
         foreach ($intersectedIds as $elem) {
             
             $sql = 'SELECT id, name, email, picture FROM user WHERE id = :userId';
@@ -195,7 +196,7 @@ function addReviews($userId, $tripId, $text)
 function selectReviewsbyUser($userId)
 {
     global $pdo;
-    $sql = 'SELECT trip.name, reviews.text FROM trip JOIN reviews ON trip.id = reviews.id_trip WHERE reviews.id_user = :userId';
+    $sql = 'SELECT trip.name, reviews.text, trip.picture FROM trip JOIN reviews ON trip.id = reviews.id_trip WHERE reviews.id_user = :userId';
     $stmt = $pdo->prepare($sql);
     $stmt->execute(['userId' => $userId]);
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -206,4 +207,11 @@ function countUserTrip(int $userId){
     $stmt = $pdo->prepare($sql);
     $stmt->execute(['userId'=> $userId]);
     return $stmt->fetch(PDO::FETCH_ASSOC);
+}
+function addCompanion($userId, $companionId){
+    global $pdo;
+    $sql = 'INSERT INTO companions (`id_user`, `id_companion`) VALUES (:userId,:companionId)';
+    $stmt = $pdo->prepare($sql);
+    return $stmt->execute(['userId'=> $userId, 'companionId'=> $companionId]);
+
 }
