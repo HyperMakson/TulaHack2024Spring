@@ -1,7 +1,10 @@
 <header class="header-inner">
     <!-- Навигация сверху -->
     <div class="navbar">
-        <a class="navbar-favourites" href="/"></a>
+        <a class="navbar-favourites" href="/">
+            <img src="../images/profile/like.svg">
+            <span>Избранное</span>
+        </a>
         <a class="navbar-logo" href="/">
             <img src="../images/Group_1.svg">
         </a>
