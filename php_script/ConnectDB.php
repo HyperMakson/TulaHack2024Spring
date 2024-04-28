@@ -238,3 +238,10 @@ function selectCompanionsbyUserId($userId){
     return $mass;
 
 }
+function selectReviewsbyId($reviews){
+    global $pdo;
+    $sql = 'SELECT text FROM reviews WHERE id = :reviewsId';
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute(['reviewsId'=> $reviews]);
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+}

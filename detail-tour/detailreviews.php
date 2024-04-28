@@ -13,27 +13,27 @@ require_once "../php_script/ConnectDB.php";
     if (isset($_GET["tour"])) {
         try {
             $id = (int) $_GET["tour"];
-            $tour = selectTripbyId($id);
+            $tour = selectReviewsbyId($id);
             ?>
             <div class="detail-page__container">
-                <div class="detail-name"><?= $tour["name"]; ?></div>
+                
                 <div class="detail-main__container">
                     <div class="detail-picture">
-                        <img src="<?= $tour["picture"]; ?>" alt="<?= $tour["name"]; ?>">
+                        <p><?= $tour['text']?></p>
                         <div class="detail-btn__container">
                             
                                
-                                    <a class="navprofile-container-account" href="?sect=reviews">Оставить отзыв</a>
+                                   
                                     
                             
                         </div>
                     </div>
                     <div class="detail-info__container">
                         <div class="detail-address">
-                            <p><?= $tour["address"]; ?></p>
+                            
                         </div>
                         <div class="detail-info">
-                            <p><?= $tour["description"]; ?></p>
+                            
                         </div>
                     </div>
                 </div>
