@@ -138,11 +138,14 @@ require_once "php_script/ConnectDB.php";
                 <? try {
                     if (!empty($_SESSION['user'])) { ?>
                         <? $companions = selectСompanion($_SESSION['user']['id']);
+                        if (empty($companions)){?>
+                          <p> Для вас нет попутчиков</p>
+                          <?}else{
                         foreach ($companions as $companion) {
                             foreach ($companion as $elem) {
                                 ?>
                                 <div class="block-tour__items">
-                                    <p><?= $elem['name'] ?></p>
+                                    <a href="../php_script/AddCompanion.php?companion=<?=$elem['id']?>"><?= $elem['name'] ?></a>
                                     <? if (empty($elem['$picture'])) { ?>
                                         <img src="" class="block-tour__picture">
                                     <? } else { ?>
@@ -156,6 +159,7 @@ require_once "php_script/ConnectDB.php";
                                 </div>
                             <? } ?>
                         <? } ?>
+                    <? } ?>
                     <? } ?>
                 <? } catch (Throwable $ex) {
                     echo "Ошибка";
