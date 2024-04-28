@@ -24,11 +24,7 @@ require_once "../php_script/ConnectDB.php";
                             
                                
                                     <a class="navprofile-container-account" href="?sect=reviews">Оставить отзыв</a>
-                                    <?
-        if (isset($_GET['sect']) and $_GET['sect'] === "reviews") {
-            ?>
-            
-            <?}?>
+                                    
                             
                         </div>
                     </div>
