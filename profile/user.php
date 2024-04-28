@@ -24,16 +24,16 @@ chekNotAuth();
 
         <!-- Навигация внутри профиля -->
         <div class="navprofile-container">
-            <a class="navprofile-container-account" href="?sect=account">Аккаунт</a>
-            <a class="navprofile-container-history" href="?sect=history">История</a>
-            <a class="navprofile-container-payment" href="?sect=reviews">Ваши отзывы</a>
+            <a class="navprofile-container-account" href="?sect=account#account-block">Аккаунт</a>
+            <a class="navprofile-container-history" href="?sect=history#history-block">История</a>
+            <a class="navprofile-container-payment" href="?sect=reviews#reviews-block">Ваши отзывы</a>
         </div>
 
         <!-- Основные данные аккаунта -->
         <?
         if (isset($_GET['sect']) and $_GET['sect'] === "reviews") {
             ?>
-            <div class="account-container">
+            <div class="account-container" id="reviews-block">
                 <h1>Ваши отзывы</h1>
                 <div class="account-container-inform">
                     <div class="account-field">
@@ -69,7 +69,7 @@ chekNotAuth();
         <?
         } elseif (isset($_GET['sect']) and $_GET['sect'] === "history") {
             ?>
-            <div class="account-container">
+            <div class="account-container" id="history-block">
                 <h1>История</h1>
                 <div class="account-container-inform">
                     <div class="account-field">
@@ -109,7 +109,7 @@ chekNotAuth();
         <?
         } elseif (isset($_GET['sect']) and $_GET['sect'] === "my-companion") {
             ?>
-            <div class="account-container">
+            <div class="account-container" id="companions-block">
                 <h1>Попутчики</h1>
                 <div class="account-container-inform">
                     <div class="account-field">
@@ -153,7 +153,7 @@ chekNotAuth();
         <?
         } else {
             ?>
-            <div class="account-container">
+            <div class="account-container" id="account-block">
                 <h1>Аккаунт</h1>
                 <div class="account-container-inform">
                     <div class="account-field">

@@ -21,14 +21,10 @@ require_once "../php_script/ConnectDB.php";
                     <div class="detail-picture">
                         <img src="<?= $tour["picture"]; ?>" alt="<?= $tour["name"]; ?>">
                         <div class="detail-btn__container">
-                            
-                               
-                        <form method="POST" action="addreview.php">
-                                    <input type="hidden" name="active" value="<?= $id ?>">
-                                    <input type="submit" value="Оставить отзыв" class="detail-btn">
-                                </form>
-                                    
-                            
+                            <form method="POST" action="addreview.php">
+                                <input type="hidden" name="active" value="<?= $id ?>">
+                                <input type="submit" value="Оставить отзыв" class="detail-btn">
+                            </form>
                         </div>
                     </div>
                     <div class="detail-info__container">

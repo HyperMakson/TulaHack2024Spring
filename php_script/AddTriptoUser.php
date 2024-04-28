@@ -7,6 +7,6 @@ if (isset($_POST['active'])) {
     } catch (Throwable $ex) {
         echo "Ошибка $ex";
     }
-    redirect('../index.php');
+    redirect('../profile/user.php?sect=history');
 
 }

@@ -1,7 +1,7 @@
 <header class="header-inner">
     <!-- Навигация сверху -->
     <div class="navbar">
-        <a class="navbar-favourites" href="../profile/user.php?sect=my-companion">
+        <a class="navbar-favourites" href="../profile/user.php?sect=my-companion#companions-block">
             <img src="../images/profile/like.svg">
             <span class="navbar-favourites__name">Попутчики</span>
         </a>
