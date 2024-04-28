@@ -42,10 +42,13 @@ chekNotAuth();
                                 $reviews = selectReviewsbyUser($_SESSION['user']['id']);
                                 foreach ($reviews as $elem) { ?>
                                     <div class="block-tour__items">
-                                        <img src=" <?= $elem['picture'] ?>" class="block-tour__picture">
+                                        <? if (empty($elem['picture'])) { ?>
+                                            <img src="../images/avatar.svg" class="block-tour__picture">
+                                        <? } else { ?>
+                                            <img src="<?= $elem['picture'] ?>" class="block-tour__picture">
+                                        <? } ?>
                                         <div class="block-tour__info-container">
-                                            <?= $elem['name'] ?>
-
+                                            <p><?= $elem['name']; ?></p>
                                         </div>
                                     </div>
                                 <?
@@ -77,9 +80,14 @@ chekNotAuth();
                                 foreach ($trip as $elem) {
                                     ?>
                                     <div class="block-tour__items">
-                                        <img src="<?= $elem['picture'] ?>" class="block-tour__picture">
+                                        <? if (empty($elem['picture'])) { ?>
+                                            <img src="../images/avatar.svg" class="block-tour__picture">
+                                        <? } else { ?>
+                                            <img src="<?= $elem['picture']; ?>" class="block-tour__picture">
+                                        <? } ?>
                                         <div class="block-tour__info-container">
-                                            <a href="/detail-tour/detailforlk.php?tour=<?= $elem['id']; ?>"><?= $elem['name'] ?></a>
+                                            <a href="/detail-tour/detailforlk.php?tour=<?= $elem['id']; ?>"
+                                                class="block-tour__info-link"><?= $elem['name'] ?></a>
                                             <p><?= $elem['address'] ?></p>
                                         </div>
                                     </div>
@@ -112,10 +120,10 @@ chekNotAuth();
                                 foreach ($trip as $elem) {
                                     foreach ($elem as $item) { ?>
                                         <div class="block-tour__items">
-                                            <? if (empty($item['$picture'])) { ?>
-                                                <img src="/images/avatar.svg" class="block-tour__picture">
+                                            <? if (empty($item['picture'])) { ?>
+                                                <img src="../images/avatar.svg" class="block-tour__picture">
                                             <? } else { ?>
-                                                <img src=" <?= $item['$picture'] ?>" class="block-tour__picture">
+                                                <img src=" <?= $item['picture'] ?>" class="block-tour__picture">
                                             <? } ?>
                                             <div class="block-tour__info-container">
                                                 <p><?= $item['name'] ?></p>
