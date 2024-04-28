@@ -126,7 +126,7 @@ require_once "php_script/ConnectDB.php";
                             <? } ?>
                         <? } ?>
                     <? } catch (Throwable $ex) {
-                        echo "Ошибка";
+                        echo "Ошибка $ex";
                     }
                     ?>
                 </div>
@@ -138,31 +138,31 @@ require_once "php_script/ConnectDB.php";
                 <? try {
                     if (!empty($_SESSION['user'])) { ?>
                         <? $companions = selectСompanion($_SESSION['user']['id']);
-                        if (empty($companions)){?>
-                          <p> Для вас нет попутчиков</p>
-                          <?}else{
-                        foreach ($companions as $companion) {
-                            foreach ($companion as $elem) {
-                                ?>
-                                <div class="block-tour__items">
-                                    <a href="../php_script/AddCompanion.php?companion=<?=$elem['id']?>"><?= $elem['name'] ?></a>
-                                    <? if (empty($elem['$picture'])) { ?>
-                                        <img src="" class="block-tour__picture">
-                                    <? } else { ?>
-                                        <img src=" <?= $elem['$picture'] ?>" class="block-tour__picture">
+                        if (empty($companions)) { ?>
+                            <p> Для вас нет попутчиков</p>
+                        <? } else {
+                            foreach ($companions as $companion) {
+                                foreach ($companion as $elem) {
+                                    ?>
+                                    <div class="block-tour__items">
+                                        <a href="../php_script/AddCompanion.php?companion=<?= $elem['id'] ?>"><?= $elem['name'] ?></a>
+                                        <? if (empty($elem['$picture'])) { ?>
+                                            <img src="" class="block-tour__picture">
+                                        <? } else { ?>
+                                            <img src=" <?= $elem['$picture'] ?>" class="block-tour__picture">
 
-                                    <? } ?>
-                                    <div class="block-tour__info-container">
-                                        <? $count = (countUserTrip($elem['id'])) ?>
-                                        <p>Колличество путешествий пользователя: <?= $count['COUNT(id_trip)'] ?>
+                                        <? } ?>
+                                        <div class="block-tour__info-container">
+                                            <? $count = (countUserTrip($elem['id'])) ?>
+                                            <p>Колличество путешествий пользователя: <?= $count['COUNT(id_trip)'] ?>
+                                        </div>
                                     </div>
-                                </div>
+                                <? } ?>
                             <? } ?>
                         <? } ?>
                     <? } ?>
-                    <? } ?>
                 <? } catch (Throwable $ex) {
-                    echo "Ошибка";
+                    echo "Ошибка $ex";
                 } ?>
             </div>
             <div class="block-news block-news__height block-news__margin-bottom">
@@ -183,7 +183,7 @@ require_once "php_script/ConnectDB.php";
 
                     <? } ?>
                 <? } catch (Throwable $ex) {
-                    echo "Ошибка";
+                    echo "Ошибка $ex";
                 } ?>
             </div>
         </div>

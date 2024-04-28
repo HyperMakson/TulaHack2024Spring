@@ -5,7 +5,7 @@ if (isset($_POST['active'])) {
     try {
         addTriptoUser((int) $_POST['active'], $_SESSION['user']['id']);
     } catch (Throwable $ex) {
-        echo "Ошибка";
+        echo "Ошибка $ex";
     }
     redirect('../index.php');
 
