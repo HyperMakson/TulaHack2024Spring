@@ -3,10 +3,10 @@
     <div class="navbar">
         <a class="navbar-favourites" href="../profile/user.php?sect=my-companion">
             <img src="../images/profile/like.svg">
-            <span>Попутчики</span>
+            <span class="navbar-favourites__name">Попутчики</span>
         </a>
         <a class="navbar-logo" href="/">
-            <img src="../images/Group_1.svg">
+            <img src="../images/logo_new_inner.svg">
         </a>
         <div class="navbar__link">
             <? if (empty($_SESSION['user'])) {

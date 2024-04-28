@@ -10,7 +10,7 @@ require_once "php_script/ConnectDB.php";
         <div class="header__navbar">
             <div class="navbar__fast-link"></div>
             <div class="navbar__logo">
-                <img src="../images/Group_1.svg">
+                <img src="../images/logo_new_main.svg">
             </div>
             <div class="navbar__link">
                 <? if (empty($_SESSION['user'])) {
@@ -131,60 +131,68 @@ require_once "php_script/ConnectDB.php";
                     ?>
                 </div>
             </div>
-            <div class="block-news block-news__height">
-                <div class="block-news__text">
-                    <p>Попутчики</p>
+            <div class="block-news">
+                <div class="block-news__text-container">
+                    <div class="block-news__text">
+                        <p>Попутчики</p>
+                    </div>
                 </div>
-                <? try {
-                    if (!empty($_SESSION['user'])) { ?>
-                        <? $companions = selectСompanion($_SESSION['user']['id']);
-                        if (empty($companions)) { ?>
-                            <p> Для вас нет попутчиков</p>
-                        <? } else {
-                            foreach ($companions as $companion) {
-                                foreach ($companion as $elem) {
-                                    ?>
-                                    <div class="block-tour__items">
-                                        <a href="../php_script/AddCompanion.php?companion=<?= $elem['id'] ?>"><?= $elem['name'] ?></a>
-                                        <? if (empty($elem['$picture'])) { ?>
-                                            <img src="" class="block-tour__picture">
-                                        <? } else { ?>
-                                            <img src=" <?= $elem['$picture'] ?>" class="block-tour__picture">
+                <div class="block-news__info">
+                    <? try {
+                        if (!empty($_SESSION['user'])) { ?>
+                            <? $companions = selectСompanion($_SESSION['user']['id']);
+                            if (empty($companions)) { ?>
+                                <p> Для вас нет попутчиков</p>
+                            <? } else {
+                                foreach ($companions as $companion) {
+                                    foreach ($companion as $elem) {
+                                        ?>
+                                        <div class="block-tour__items">
+                                            <a href="../php_script/AddCompanion.php?companion=<?= $elem['id'] ?>"><?= $elem['name'] ?></a>
+                                            <? if (empty($elem['$picture'])) { ?>
+                                                <img src="" class="block-tour__picture">
+                                            <? } else { ?>
+                                                <img src=" <?= $elem['$picture'] ?>" class="block-tour__picture">
 
-                                        <? } ?>
-                                        <div class="block-tour__info-container">
-                                            <? $count = (countUserTrip($elem['id'])) ?>
-                                            <p>Колличество путешествий пользователя: <?= $count['COUNT(id_trip)'] ?>
+                                            <? } ?>
+                                            <div class="block-tour__info-container">
+                                                <? $count = (countUserTrip($elem['id'])) ?>
+                                                <p>Колличество путешествий пользователя: <?= $count['COUNT(id_trip)'] ?>
+                                            </div>
                                         </div>
-                                    </div>
+                                    <? } ?>
                                 <? } ?>
                             <? } ?>
                         <? } ?>
-                    <? } ?>
-                <? } catch (Throwable $ex) {
-                    echo "Ошибка $ex";
-                } ?>
-            </div>
-            <div class="block-news block-news__height block-news__margin-bottom">
-                <div class="block-news__text">
-                    <p>Отзывы</p>
+                    <? } catch (Throwable $ex) {
+                        echo "Ошибка $ex";
+                    } ?>
                 </div>
-                <? try {
-                    $reviews = selectReviews();
-                    foreach ($reviews as $elem) { ?>
-                        <div class="block-tour__items">
-                            <img src=" <?= $elem['trip_picture'] ?>" class="block-tour__picture">
-                            <div class="block-tour__info-container">
-                                <a href="/detail-tour/detail.php?tour=<?= $elem['id'] ?>"
-                                    class="block-tour__info-link"><?= $elem['trip_name'] ?></a>
-                                <p><?= $elem['user_name'] ?></p>
+            </div>
+            <div class="block-news block-news__margin-bottom">
+                <div class="block-news__text-container">
+                    <div class="block-news__text">
+                        <p>Отзывы</p>
+                    </div>
+                </div>
+                <div class="block-news__info">
+                    <? try {
+                        $reviews = selectReviews();
+                        foreach ($reviews as $elem) { ?>
+                            <div class="block-tour__items">
+                                <img src=" <?= $elem['trip_picture'] ?>" class="block-tour__picture">
+                                <div class="block-tour__info-container">
+                                    <a href="/detail-tour/detail.php?tour=<?= $elem['id'] ?>"
+                                        class="block-tour__info-link"><?= $elem['trip_name'] ?></a>
+                                    <p><?= $elem['user_name'] ?></p>
+                                </div>
                             </div>
-                        </div>
 
-                    <? } ?>
-                <? } catch (Throwable $ex) {
-                    echo "Ошибка $ex";
-                } ?>
+                        <? } ?>
+                    <? } catch (Throwable $ex) {
+                        echo "Ошибка $ex";
+                    } ?>
+                </div>
             </div>
         </div>
     </div>
