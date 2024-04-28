@@ -10,11 +10,11 @@ require_once "php_script/ConnectDB.php";
         <div class="header__navbar">
             <div class="navbar__fast-link"></div>
             <div class="navbar__logo">
-                <img src="../images/logo.svg">
+                <img src="../images/Group_1.svg">
             </div>
             <div class="navbar__link">
                 <? if (empty($_SESSION['user'])) {
-                ?>
+                    ?>
                     <div class="link__logreg link__mobile-log">
                         <a href="logreg/login.php">Вход</a>
                     </div>
@@ -23,7 +23,7 @@ require_once "php_script/ConnectDB.php";
                     </div>
                 <?
                 } else {
-                ?>
+                    ?>
                     <div class="link__logreg link__profile">
                         <a href="profile/user.php">
                             <div class="link__profile-avatar"></div>
@@ -81,7 +81,7 @@ require_once "php_script/ConnectDB.php";
                             $trip = selectTripforUser($_SESSION['user']['id']);
                             if (!empty($trip)) {
                                 foreach ($trip as $elem) {
-                            ?>
+                                    ?>
                                     <div class="block-tour__items">
                                         <img src="<?= $elem['picture'] ?>" class="block-tour__picture">
                                         <div class="block-tour__info-container">
@@ -94,7 +94,7 @@ require_once "php_script/ConnectDB.php";
                             } else {
                                 $trip = selectTrip();
                                 foreach ($trip as $elem) {
-                                ?>
+                                    ?>
                                     <div class="block-tour__items">
                                         <img src="<?= $elem['picture'] ?>" class="block-tour__picture">
                                         <div class="block-tour__info-container">
@@ -102,23 +102,24 @@ require_once "php_script/ConnectDB.php";
                                             <p><?= $elem['address'] ?></p>
                                         </div>
                                     </div>
-                            <? }
+                                <? }
                             } ?>
-                            <? } else {
+                        <? } else {
                             $trip = selectTrip();
                             foreach ($trip as $elem) {
-                            ?>
+                                ?>
                                 <div class="block-tour__items">
                                     <img src="<?= $elem['picture'] ?>" class="block-tour__picture">
                                     <div class="block-tour__info-container">
-                                        <a href="/detail-tour/detail.php?tour=<?= $elem['id']; ?>" class="block-tour__info-link"><?= $elem['name'] ?></a>
+                                        <a href="/detail-tour/detail.php?tour=<?= $elem['id']; ?>"
+                                            class="block-tour__info-link"><?= $elem['name'] ?></a>
                                         <p><?= $elem['address'] ?></p>
                                     </div>
                                 </div>
                             <?
                             }
                             ?>
-                            <? } ?><? } ?>
+                        <? } ?><? } ?>
                 </div>
             </div>
             <div class="block-news block-news__height">
@@ -128,27 +129,25 @@ require_once "php_script/ConnectDB.php";
                 <? if (!empty($_SESSION['user'])) { ?>
                     <? $companions = selectСompanion($_SESSION['user']['id']);
                     foreach ($companions as $companion) {
-                        foreach ($companion as $elem){
-                    ?>
-                    <div class="block-tour__items">
-                    <p><?= $elem['name'] ?></p>
-                    <? if (empty($elem['$picture'])) { ?>
-                            <img src="" class="block-tour__picture">
-                        <? } else { ?>
-                            <img src=" <?= $elem['$picture'] ?>" class="block-tour__picture">
-                           
+                        foreach ($companion as $elem) {
+                            ?>
+                            <div class="block-tour__items">
+                                <p><?= $elem['name'] ?></p>
+                                <? if (empty($elem['$picture'])) { ?>
+                                    <img src="" class="block-tour__picture">
+                                <? } else { ?>
+                                    <img src=" <?= $elem['$picture'] ?>" class="block-tour__picture">
+
+                                <? } ?>
+                                <div class="block-tour__info-container">
+                                    <? $count = (countUserTrip($elem['id'])) ?>
+                                    <p>Колличество путешествий пользователя: <?= $count['COUNT(id_trip)'] ?>
+                                </div>
+                            </div>
                         <? } ?>
-                    <div class="block-tour__info-container">
-                    <? $count = (countUserTrip($elem['id']))?>
-                        <p>Колличество путешествий пользователя: <?= $count['COUNT(id_trip)']?>
-                    </div>
-                </div>
-                        
-                        
-                    <? } ?><?}?>
-                    
+                    <? } ?>
                 <? } ?>
-                
+
             </div>
             <div class="block-news block-news__height block-news__margin-bottom">
                 <div class="block-news__text">
@@ -159,7 +158,8 @@ require_once "php_script/ConnectDB.php";
                     <div class="block-tour__items">
                         <img src=" <?= $elem['trip_picture'] ?>" class="block-tour__picture">
                         <div class="block-tour__info-container">
-                            <a href="/detail-tour/detail.php?tour=<?= $elem['id'] ?>" class="block-tour__info-link"><?= $elem['trip_name'] ?></a>
+                            <a href="/detail-tour/detail.php?tour=<?= $elem['id'] ?>"
+                                class="block-tour__info-link"><?= $elem['trip_name'] ?></a>
                             <p><?= $elem['user_name'] ?></p>
                         </div>
                     </div>

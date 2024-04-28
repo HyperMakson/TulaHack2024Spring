@@ -52,6 +52,10 @@
     transform: translate(-50%, -50%);
 }
 
+.navbar__logo img {
+    height: 40px;
+}
+
 .navbar__link {
     display: flex;
     flex-direction: row;
@@ -349,6 +353,10 @@ h2 {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+.navbar-logo img {
+    height: 40px;
 }
 
 .navbar-profile {
@@ -756,6 +764,10 @@ h2 {
     gap: 5px;
 }
 
+.footer-logo img {
+    height: 40px;
+}
+
 .footer-contacts {
     display: flex;
     flex-direction: row;
@@ -816,8 +828,7 @@ h2 {
     flex-direction: row;
     justify-content: center;
     align-items: flex-start;
-    gap: 15px;
-    background: #eeefef;
+    background: #d7e2ee;
     padding: 10%;
     position: relative;
 }
@@ -832,6 +843,7 @@ h2 {
     height: 100%;
     display: block;
     object-fit: contain;
+    border-radius: 10px 0 0 10px;
 }
 
 .detail-info__container {
@@ -855,7 +867,7 @@ h2 {
 
 .detail-info {
     background: #ffffff;
-    height: 122px;
+    height: 216.9px;
     border-radius: 16px;
     overflow: hidden;
     display: flex;
@@ -864,15 +876,37 @@ h2 {
     align-items: center;
 }
 
+.detail-info p {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    font-family: 'Roboto';
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 40.42px;
+    color: #000;
+}
+
 .detail-address {
     background: #ffffff;
-    height: 22px;
+    height: 62px;
     border-radius: 16px;
     overflow: hidden;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    text-align: left;
+}
+
+.detail-address p {
+    font-family: 'Roboto';
+    font-size: 25px;
+    font-weight: 500;
+    line-height: 40.42px;
+    color: #000;
+    margin-left: 20px;
+    margin-top: 20px;
 }
 
 .detail-btn {
@@ -882,6 +916,16 @@ h2 {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
+    width: 100%;
+}
+
+.btn_add-tour {
+    padding: 9px 0;
+    text-align: center;
+    border-bottom-right-radius: 10px;
+    width: 100%;
+    border: none;
+
 }
 
 @media screen and (max-width: 960px) {
@@ -891,14 +935,16 @@ h2 {
 
     .link__mobile-log {
         position: absolute;
-        top: 10px;
+        top: 50%;
         left: 10px;
+        transform: translateY(-50%);
     }
 
     .link__mobile-reg {
         position: absolute;
-        top: 10px;
+        top: 50%;
         right: 10px;
+        transform: translateY(-50%);
     }
 
     .main-text__container .main-text {
@@ -919,6 +965,7 @@ h2 {
 
     .footer {
         flex-direction: column;
+        padding: 32px 10px 64px 10px;
     }
 
     .footer-nav {
@@ -926,7 +973,8 @@ h2 {
     }
 
     .footer-contacts {
-        flex-direction: column;
+        flex-direction: row;
+        flex-wrap: wrap;
     }
 
     .footer-contacts__item {
