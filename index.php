@@ -74,7 +74,7 @@ require_once "php_script/ConnectDB.php";
                                 <div class='block-tour__items'>
                                     <img src='<?= $picture ?>' class='block-tour__picture'>
                                     <div class='block-tour__info-container'>
-                                        <a href='/detail-tour/detail.php?tour="<?= $id ?>";'
+                                        <a href='/detail-tour/detail.php?tour=<?= $id ?>;'
                                             class="block-tour__info-link"><?= $name ?></a>
                                         <p><?= $address ?></p>
                                     </div>
