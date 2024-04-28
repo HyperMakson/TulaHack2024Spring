@@ -219,3 +219,22 @@ function addCompanion($userId, $companionId)
     return $stmt->execute(['userId' => $userId, 'companionId' => $companionId]);
 
 }
+
+function selectCompanionsbyUserId($userId){
+    $mass = [];
+    global $pdo;
+    $sql = 'SELECT DISTINCT u.id FROM companions c JOIN user u ON c.id_user = u.id OR c.id_companion = u.id WHERE (c.id_user = :userId OR c.id_companion = :userId) AND u.id <> :userId;';
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute(['userId'=> $userId]);
+    $intersectedIds = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    foreach ($intersectedIds as $elem) {
+            
+        $sql = 'SELECT id, name, picture, link FROM user WHERE id = :userId';
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute(['userId'=> $elem['id']]);
+        $mas = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $mass[] = $mas;
+    }
+    return $mass;
+
+}
