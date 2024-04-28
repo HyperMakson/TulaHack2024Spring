@@ -52,14 +52,18 @@ chekAuth();
                         <label for="input-login" class="upper-text__log-form">Увлечения</label>
                         <div class="input-fields input-login input-hobby">
                             <?
-                            $hobbys = selectHobbys();
-                            foreach ($hobbys as $hobby) {
-                                ?>
-                                <div class="input-hobby__item">
-                                    <input type="checkbox" name="hobby[]" id="hobby" value="<?= $hobby['id']; ?>">
-                                    <label for="hobby"><?= $hobby['hobby']; ?></label>
-                                </div>
-                            <?
+                            try {
+                                $hobbys = selectHobbys();
+                                foreach ($hobbys as $hobby) {
+                                    ?>
+                                    <div class="input-hobby__item">
+                                        <input type="checkbox" name="hobby[]" id="hobby" value="<?= $hobby['id']; ?>">
+                                        <label for="hobby"><?= $hobby['hobby']; ?></label>
+                                    </div>
+                                <?
+                                }
+                            } catch (Throwable $ex) {
+                                echo "Ошибка";
                             }
                             ?>
                         </div>

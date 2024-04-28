@@ -37,7 +37,8 @@ chekNotAuth();
                 <h1>Ваши отзывы</h1>
                 <div class="account-container-inform">
                     <div class="account-field">
-                        <? if (!empty(selectReviewsbyUser($_SESSION['user']['id']))){?>
+                        <? try {
+                            <? if (!empty(selectReviewsbyUser($_SESSION['user']['id']))){?>
                         
                         <?
                         $reviews = selectReviewsbyUser($_SESSION['user']['id']);
@@ -52,7 +53,11 @@ chekNotAuth();
 
                 <? } ?>
                         <?}else{?>
-                            <p> Вы ещё не оставили отзывов</p><?}?>
+                            <p> Вы ещё не оставили отзывов</p><?}?><?
+                        } catch (Throwable $ex) {
+                            echo "Ошибка";
+                        }
+                        ?>
                     </div>
                 </div>
             </div>
@@ -63,7 +68,8 @@ chekNotAuth();
                 <h1>История</h1>
                 <div class="account-container-inform">
                     <div class="account-field">
-                    <?
+                        <?
+                        try {
                             $trip = selectTriptoUser($_SESSION['user']['id']);
                             if (!empty($trip)) {
                                 foreach ($trip as $elem) {
@@ -76,9 +82,11 @@ chekNotAuth();
                                         </div>
                                     </div>
                                 <?
-                                }}?>
-                    
-                        
+                                }
+                            } ?>
+                        <? } catch (Throwable $ex) {
+                            echo "Ошибка";
+                        } ?>
                     </div>
                 </div>
             </div>

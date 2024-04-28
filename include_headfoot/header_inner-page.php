@@ -3,7 +3,7 @@
     <div class="navbar">
         <a class="navbar-favourites" href="/"></a>
         <a class="navbar-logo" href="/">
-            <img src="../images/logo2.svg">
+            <img src="../images/Group_1.svg">
         </a>
         <div class="navbar__link">
             <? if (empty($_SESSION['user'])) {
