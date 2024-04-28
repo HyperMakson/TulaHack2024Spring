@@ -1,6 +1,6 @@
 <?php
 session_start();
-function redirect(string $path)
+function redirect($path)
 {
     header("Location: $path");
     die();
