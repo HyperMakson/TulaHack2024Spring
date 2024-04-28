@@ -198,7 +198,7 @@ function addReviews($userId, $tripId, $text)
 function selectReviewsbyUser($userId)
 {
     global $pdo;
-    $sql = 'SELECT trip.name, reviews.text, trip.picture FROM trip JOIN reviews ON trip.id = reviews.id_trip WHERE reviews.id_user = :userId';
+    $sql = 'SELECT trip.id, trip.name, reviews.text, trip.picture FROM trip JOIN reviews ON trip.id = reviews.id_trip WHERE reviews.id_user = :userId';
     $stmt = $pdo->prepare($sql);
     $stmt->execute(['userId' => $userId]);
     return $stmt->fetchAll(PDO::FETCH_ASSOC);

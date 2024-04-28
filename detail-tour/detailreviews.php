@@ -16,26 +16,12 @@ require_once "../php_script/ConnectDB.php";
             $tour = selectReviewsbyId($id);
             ?>
             <div class="detail-page__container">
-                
                 <div class="detail-main__container">
-                    <div class="detail-picture">
-                        <p><?= $tour['text']?></p>
-                        <div class="detail-btn__container">
-                        <p><?= $tour['name']?></p>
+                    <div class="detail-info__container detail-info__container-review">
                         <img src="<?= $tour["picture"]; ?>" alt="<?= $tour["name"]; ?>">
-                            
-                               
-                                   
-                                    
-                            
-                        </div>
-                    </div>
-                    <div class="detail-info__container">
-                        <div class="detail-address">
-                            
-                        </div>
-                        <div class="detail-info">
-                            
+                        <div class="detail-info__container-review-text">
+                            <p class="review-block__name"><?= $tour['name'] ?></p>
+                            <p class="review-block__text-review"><?= $tour['text'] ?></p>
                         </div>
                     </div>
                 </div>

@@ -925,7 +925,35 @@ h2 {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+}
+
+.detail-info__container-review {
+    flex-direction: row;
     align-items: flex-start;
+}
+
+.detail-info__container-review-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.detail-info__container img {
+    width: 50%;
+    object-fit: cover;
+}
+
+.review-block__text-review {
+    text-align: center;
+    padding: 20px;
+}
+
+.review-block__name {
+    font-size: 16px;
+    font-weight: 600;
+    padding: 20px;
 }
 
 .detail-name {

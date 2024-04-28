@@ -48,7 +48,8 @@ chekNotAuth();
                                             <img src="<?= $elem['picture'] ?>" class="block-tour__picture">
                                         <? } ?>
                                         <div class="block-tour__info-container">
-                                            <p><?= $elem['name']; ?></p>
+                                            <a href="/detail-tour/detailreviews.php?tour=<?= $elem['id'] ?>"
+                                                class="block-tour__info-link"><?= $elem['name'] ?></a>
                                         </div>
                                     </div>
                                 <?
