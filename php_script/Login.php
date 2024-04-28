@@ -16,5 +16,5 @@ try {
 
     }
 } catch (Throwable $ex) {
-    echo "Ошибка";
+    echo "Ошибка $ex";
 }

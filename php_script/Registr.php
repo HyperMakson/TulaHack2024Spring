@@ -22,5 +22,5 @@ try {
         redirect('../register.php');
     }
 } catch (Throwable $ex) {
-    echo "Ошибка";
+    echo "Ошибка $ex";
 }
