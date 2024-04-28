@@ -81,6 +81,7 @@ function selectTrip()
 function selectСompanion($userId)
 {
     global $pdo;
+    $mass = [];
     $sql = "SELECT id_trip FROM user_history WHERE id_user = :userId";
     $stmt = $pdo->prepare($sql);
     $stmt->execute(['userId' => $userId]);
@@ -113,7 +114,7 @@ function selectСompanion($userId)
                 }
             }
         }
-        $mass = [];
+       
         foreach ($intersectedIds as $elem) {
             
             $sql = 'SELECT id, name, email, picture FROM user WHERE id = :userId';
@@ -176,6 +177,7 @@ function selectTriptoUser($userId)
     $stmt = $pdo->prepare($sql);
     $stmt->execute(["userId" => $userId]);
     $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $trips = [];
     foreach ($res as $item) {
         $sql = "SELECT * FROM trip WHERE id = :tripId";
         $stmt = $pdo->prepare($sql);
