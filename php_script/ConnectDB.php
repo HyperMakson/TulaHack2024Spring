@@ -13,7 +13,7 @@ try {
 function selectUser($userLogin, $userPassword)
 {
     global $pdo;
-    $sql = "SELECT  id, name, email FROM user WHERE email = :userLogin AND password = :userPassword";
+    $sql = "SELECT  id, name, email, link FROM user WHERE email = :userLogin AND password = :userPassword";
     $stmt = $pdo->prepare($sql);
     $stmt->execute(['userLogin' => $userLogin, 'userPassword' => $userPassword]);
     return $stmt->fetch(PDO::FETCH_ASSOC);

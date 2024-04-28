@@ -51,7 +51,7 @@ chekNotAuth();
 
                                 <? } ?>
                             <? } else { ?>
-                                <p> Вы ещё не оставили отзывов</p>
+                                <p>Вы ещё не оставили отзывов</p>
                             <? }
                         } catch (Throwable $ex) {
                             echo "Ошибка";
@@ -133,21 +133,11 @@ chekNotAuth();
                         <span><?= $_SESSION['user']['email'] ?></span>
                     </div>
                     <div class="account-field">
-                        <h2>Пароль</h2>
-                        <span>*********</span>
+                        <h2>Ссылка на социальные сети</h2>
+                        <span><?= $_SESSION['user']['link'] ?></span>
                     </div>
-                    <div class="account-field">
-                        <h2>Номер телефона</h2>
-                        <span>+79539527523</span>
-                    </div>
-                    <div class="account-field">
-                        <h2>Адрес</h2>
-                        <span>Россия, Тульская обл. г.Тула ул.Свободы д.35</span>
-                    </div>
-                    <div class="account-field">
-                        <h2>Дата рождения</h2>
-                        <span>14.07.2003</span>
-                    </div>
+                    
+                    
                     <div class="account-field">
                         <a href="../php_script/Exit.php" class="profile__link-logout">Выйти</a>
                     </div>
