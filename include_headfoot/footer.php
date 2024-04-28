@@ -3,7 +3,7 @@
 
         <div class="footer-nav">
             <a class="footer-logo" href="/">
-                <img src="../images/Group_1.svg">
+                <img src="../images/logo_new_inner.svg">
             </a>
             <nav class="soc-link">
                 <a class="footer-logo-social" href="#">
