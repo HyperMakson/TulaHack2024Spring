@@ -113,13 +113,17 @@ chekNotAuth();
                                     foreach ($elem as $item) { ?>
                                         <div class="block-tour__items">
                                             <? if (empty($item['$picture'])) { ?>
-                                                <img src="" class="block-tour__picture">
+                                                <img src="/images/avatar.svg" class="block-tour__picture">
                                             <? } else { ?>
                                                 <img src=" <?= $item['$picture'] ?>" class="block-tour__picture">
                                             <? } ?>
                                             <div class="block-tour__info-container">
                                                 <p><?= $item['name'] ?></p>
-                                                <p><?= $item['name'] . $item['link'] ?></p>
+                                                <a href="<?= $item['link'] ?>" class="block-tour__info-link">
+                                                    <?= $item['name'] ?>
+                                                </a>
+                                                <? $count = (countUserTrip($item['id'])); ?>
+                                                <p>Колличество путешествий пользователя: <?= $count['COUNT(id_trip)']; ?>
                                             </div>
                                         </div>
                                     <?

@@ -74,7 +74,8 @@ require_once "php_script/ConnectDB.php";
                                 <div class='block-tour__items'>
                                     <img src='<?= $picture ?>' class='block-tour__picture'>
                                     <div class='block-tour__info-container'>
-                                        <a href='/detail-tour/detail.php?tour="<?= $id ?>";'><?= $name ?></a>
+                                        <a href='/detail-tour/detail.php?tour="<?= $id ?>";'
+                                            class="block-tour__info-link"><?= $name ?></a>
                                         <p><?= $address ?></p>
                                     </div>
                                 </div>
@@ -89,7 +90,8 @@ require_once "php_script/ConnectDB.php";
                                         <div class="block-tour__items">
                                             <img src="<?= $elem['picture'] ?>" class="block-tour__picture">
                                             <div class="block-tour__info-container">
-                                                <a href="/detail-tour/detail.php?tour=<?= $elem['id']; ?>"><?= $elem['name'] ?></a>
+                                                <a href="/detail-tour/detail.php?tour=<?= $elem['id']; ?>"
+                                                    class="block-tour__info-link"><?= $elem['name'] ?></a>
                                                 <p><?= $elem['address'] ?></p>
                                             </div>
                                         </div>
@@ -102,7 +104,8 @@ require_once "php_script/ConnectDB.php";
                                         <div class="block-tour__items">
                                             <img src="<?= $elem['picture'] ?>" class="block-tour__picture">
                                             <div class="block-tour__info-container">
-                                                <a href="/detail-tour/detail.php?tour=<?= $elem['id']; ?>"><?= $elem['name'] ?></a>
+                                                <a href="/detail-tour/detail.php?tour=<?= $elem['id']; ?>"
+                                                    class="block-tour__info-link"><?= $elem['name'] ?></a>
                                                 <p><?= $elem['address'] ?></p>
                                             </div>
                                         </div>
@@ -148,16 +151,18 @@ require_once "php_script/ConnectDB.php";
                                     foreach ($companion as $elem) {
                                         ?>
                                         <div class="block-tour__items">
-                                            <a href="../php_script/AddCompanion.php?companion=<?= $elem['id'] ?>"><?= $elem['name'] ?></a>
                                             <? if (empty($elem['$picture'])) { ?>
-                                                <img src="" class="block-tour__picture">
+                                                <img src="/images/avatar.svg" class="block-tour__picture">
                                             <? } else { ?>
                                                 <img src=" <?= $elem['$picture'] ?>" class="block-tour__picture">
-
                                             <? } ?>
                                             <div class="block-tour__info-container">
-                                                <? $count = (countUserTrip($elem['id'])) ?>
-                                                <p>Колличество путешествий пользователя: <?= $count['COUNT(id_trip)'] ?>
+                                                <a href="../php_script/AddCompanion.php?companion=<?= $elem['id'] ?>"
+                                                    class="block-tour__info-link">
+                                                    <?= $elem['name'] ?>
+                                                </a>
+                                                <? $count = (countUserTrip($elem['id'])); ?>
+                                                <p>Колличество путешествий пользователя: <?= $count['COUNT(id_trip)']; ?>
                                             </div>
                                         </div>
                                     <? } ?>
@@ -187,7 +192,6 @@ require_once "php_script/ConnectDB.php";
                                     <p><?= $elem['user_name'] ?></p>
                                 </div>
                             </div>
-
                         <? } ?>
                     <? } catch (Throwable $ex) {
                         echo "Ошибка $ex";
