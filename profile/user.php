@@ -38,22 +38,21 @@ chekNotAuth();
                 <div class="account-container-inform">
                     <div class="account-field">
                         <? try {
-                            <? if (!empty(selectReviewsbyUser($_SESSION['user']['id']))){?>
-                        
-                        <?
-                        $reviews = selectReviewsbyUser($_SESSION['user']['id']);
-                        foreach ($reviews as $elem) { ?>
-                    <div class="block-tour__items">
-                        <img src=" <?= $elem['picture'] ?>" class="block-tour__picture">
-                        <div class="block-tour__info-container">
-                            <?= $elem['name'] ?>
-                            
-                        </div>
-                    </div>
+                            if (!empty(selectReviewsbyUser($_SESSION['user']['id']))) {
+                                $reviews = selectReviewsbyUser($_SESSION['user']['id']);
+                                foreach ($reviews as $elem) { ?>
+                                    <div class="block-tour__items">
+                                        <img src=" <?= $elem['picture'] ?>" class="block-tour__picture">
+                                        <div class="block-tour__info-container">
+                                            <?= $elem['name'] ?>
 
-                <? } ?>
-                        <?}else{?>
-                            <p> Вы ещё не оставили отзывов</p><?}?><?
+                                        </div>
+                                    </div>
+
+                                <? } ?>
+                            <? } else { ?>
+                                <p> Вы ещё не оставили отзывов</p>
+                            <? }
                         } catch (Throwable $ex) {
                             echo "Ошибка";
                         }
