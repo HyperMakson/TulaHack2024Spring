@@ -48,11 +48,14 @@ chekNotAuth();
 
                                         </div>
                                     </div>
-
-                                <? } ?>
-                            <? } else { ?>
-                                <p>Вы ещё не оставили отзывов</p>
-                            <? }
+                                <?
+                                }
+                            } else { ?>
+                                <div class="account-field">
+                                    <span>Вы ещё не оставили отзывов</span>
+                                </div>
+                            <?
+                            }
                         } catch (Throwable $ex) {
                             echo "Ошибка";
                         }
@@ -82,7 +85,13 @@ chekNotAuth();
                                     </div>
                                 <?
                                 }
-                            } ?>
+                            } else { ?>
+                                <div class="account-field">
+                                    <span>Вы ещё не путешествовали</span>
+                                </div>
+                            <?
+                            }
+                            ?>
                         <? } catch (Throwable $ex) {
                             echo "Ошибка";
                         } ?>
@@ -111,7 +120,13 @@ chekNotAuth();
                                     </div>
                                 <?
                                 }
-                            } ?>
+                            } else { ?>
+                                <div class="account-field">
+                                    <span>У вас ещё нет попутчиков</span>
+                                </div>
+                            <?
+                            }
+                            ?>
                         <? } catch (Throwable $ex) {
                             echo "Ошибка";
                         } ?>
@@ -136,8 +151,6 @@ chekNotAuth();
                         <h2>Ссылка на социальные сети</h2>
                         <span><?= $_SESSION['user']['link'] ?></span>
                     </div>
-                    
-                    
                     <div class="account-field">
                         <a href="../php_script/Exit.php" class="profile__link-logout">Выйти</a>
                     </div>
