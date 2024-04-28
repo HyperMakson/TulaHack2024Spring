@@ -37,7 +37,22 @@ chekNotAuth();
                 <h1>Ваши отзывы</h1>
                 <div class="account-container-inform">
                     <div class="account-field">
-                        <?= var_dump(selectReviewsbyUser($_SESSION['user']['id']))?>
+                        <? if (!empty(selectReviewsbyUser($_SESSION['user']['id']))){?>
+                        
+                        <?
+                        $reviews = selectReviewsbyUser($_SESSION['user']['id']);
+                        foreach ($reviews as $elem) { ?>
+                    <div class="block-tour__items">
+                        <img src=" <?= $elem['picture'] ?>" class="block-tour__picture">
+                        <div class="block-tour__info-container">
+                            <?= $elem['name'] ?>
+                            
+                        </div>
+                    </div>
+
+                <? } ?>
+                        <?}else{?>
+                            <p> Вы ещё не оставили отзывов</p><?}?>
                     </div>
                 </div>
             </div>

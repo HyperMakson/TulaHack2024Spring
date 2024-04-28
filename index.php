@@ -127,10 +127,16 @@ require_once "php_script/ConnectDB.php";
                 </div>
                 <? if (!empty($_SESSION['user'])) { ?>
                     <? $companions = selectСompanion($_SESSION['user']['id']);
+                    if (empty($companions)){?>
+                    <p> Для вас нет попутчиков</p>
+                    <?}else{
                     foreach ($companions as $companion) {
                         foreach ($companion as $elem){
                     ?>
-                    <div class="block-tour__items">
+                    
+                    <form action="../php_script/AddCompanion.php" method="GET">
+                    <input type="hidden" name="companion" value="<?=$elem['id']?>">
+                <button><div class="block-tour__items">
                     <p><?= $elem['name'] ?></p>
                     <? if (empty($elem['$picture'])) { ?>
                             <img src="" class="block-tour__picture">
@@ -142,12 +148,12 @@ require_once "php_script/ConnectDB.php";
                     <? $count = (countUserTrip($elem['id']))?>
                         <p>Колличество путешествий пользователя: <?= $count['COUNT(id_trip)']?>
                     </div>
-                </div>
+                </div></button></form>
                         
                         
                     <? } ?><?}?>
                     
-                <? } ?>
+                <? } ?><?}?>
                 
             </div>
             <div class="block-news block-news__height block-news__margin-bottom">
