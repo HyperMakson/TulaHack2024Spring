@@ -37,7 +37,12 @@ chekNotAuth();
                 <h1>Ваши отзывы</h1>
                 <div class="account-container-inform">
                     <div class="account-field">
-                        <?= var_dump(selectReviewsbyUser($_SESSION['user']['id']))?>
+                        <? try {
+                            echo var_dump(selectReviewsbyUser($_SESSION['user']['id']));
+                        } catch (Throwable $ex) {
+                            echo "Ошибка";
+                        }
+                        ?>
                     </div>
                 </div>
             </div>
@@ -48,7 +53,8 @@ chekNotAuth();
                 <h1>История</h1>
                 <div class="account-container-inform">
                     <div class="account-field">
-                    <?
+                        <?
+                        try {
                             $trip = selectTriptoUser($_SESSION['user']['id']);
                             if (!empty($trip)) {
                                 foreach ($trip as $elem) {
@@ -61,9 +67,11 @@ chekNotAuth();
                                         </div>
                                     </div>
                                 <?
-                                }}?>
-                    
-                        
+                                }
+                            } ?>
+                        <? } catch (Throwable $ex) {
+                            echo "Ошибка";
+                        } ?>
                     </div>
                 </div>
             </div>
