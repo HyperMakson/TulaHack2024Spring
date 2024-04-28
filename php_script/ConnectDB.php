@@ -35,7 +35,6 @@ function addUser($userName, $userLogin, $userPassword, $checkbox_values)
         $stmt->execute(["userId" => $user_id['id'], "hobbyId" => $value]);
     }
     return 1;
-
 }
 function selectTripforUser($userId)
 {
@@ -64,7 +63,7 @@ function selectTripforUser($userId)
 function selectReviews()
 {
     global $pdo;
-    $sql = "SELECT u.name AS user_name, t.name AS trip_name, r.text AS review_text FROM user u JOIN reviews r ON u.id = r.id_user JOIN trip t ON r.id_trip = t.id;";
+    $sql = "SELECT u.name AS user_name, t.name AS trip_name, r.text AS review_text, t.picture AS trip_picture, r.id AS id FROM user u JOIN reviews r ON u.id = r.id_user JOIN trip t ON r.id_trip = t.id;";
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -82,10 +81,6 @@ function selectTrip()
 function selectСompanion($userId)
 {
     global $pdo;
-    /*$sql = "SELECT * FROM companions WHERE id_user != :userId AND id_companion != :userId";
-$stmt = $pdo->prepare($sql);
-$stmt->execute(['userId' => $userId]);
-return $stmt->fetchAll(PDO::FETCH_ASSOC);*/
     $sql = "SELECT id_trip FROM user_history WHERE id_user = :userId";
     $stmt = $pdo->prepare($sql);
     $stmt->execute(['userId' => $userId]);
@@ -101,8 +96,36 @@ return $stmt->fetchAll(PDO::FETCH_ASSOC);*/
             $user = $stmt->fetchAll(PDO::FETCH_ASSOC);
             $users[] = $user;
         }
-        return $users;
+        if (isset($users)) {
+            $sql = 'SELECT u.id FROM user u LEFT JOIN companions c1 ON u.id = c1.id_user AND c1.id_companion = :userId LEFT JOIN companions c2 ON u.id = c2.id_companion AND c2.id_user = :userId WHERE c1.id_companion IS NULL AND c2.id_user IS NULL AND u.id != :userId';
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute(['userId' => $userId]);
+            $companions = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        }
+        $intersectedIds = array();
+
+        foreach ($companions as $item1) {
+            foreach ($users as $subArray) {
+                foreach ($subArray as $item2) {
+                    if ($item1['id'] == $item2['id_user'] && !in_array($item1['id'], $intersectedIds)) {
+                        $intersectedIds[] = $item1['id'];
+                    }
+                }
+            }
+        }
+        foreach ($intersectedIds as $elem) {
+            
+            $sql = 'SELECT id, name, email, picture FROM user WHERE id = :userId';
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute(['userId'=> $elem]);
+            $mas = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $mass[] = $mas;
+
+        
+        }
+           
     }
+    return $mass;
 }
 function selectHobbys()
 {
@@ -158,7 +181,6 @@ function selectTriptoUser($userId)
         $stmt->execute(['tripId' => $item['id_trip']]);
         $trip = $stmt->fetch(PDO::FETCH_ASSOC);
         $trips[] = $trip;
-
     }
     return $trips;
 }
@@ -177,4 +199,11 @@ function selectReviewsbyUser($userId)
     $stmt = $pdo->prepare($sql);
     $stmt->execute(['userId' => $userId]);
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+function countUserTrip(int $userId){
+    global $pdo;
+    $sql = 'SELECT COUNT(id_trip) FROM user_history WHERE id_user = :userId;';
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute(['userId'=> $userId]);
+    return $stmt->fetch(PDO::FETCH_ASSOC);
 }
