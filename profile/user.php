@@ -108,24 +108,30 @@ chekNotAuth();
                         <?
                         try {
                             $trip = selectCompanionsbyUserId($_SESSION['user']['id']);
-                           
                             if (!empty($trip)) {
                                 foreach ($trip as $elem) {
-                                    foreach ($elem as $item) {?>
-
-                                    <div class="block-tour__items">
-                                    
-                                    <? if (empty($item['$picture'])) { ?>
-                                        <img src="" class="block-tour__picture">
-                                    <? } else { ?>
-                                        <img src=" <?= $item['$picture'] ?>" class="block-tour__picture">
-
-                                    <? } ?>
-                                    <p><?= $item['name'] ?> <?= $item['link'] ?>
-                                    
-                                <?
+                                    foreach ($elem as $item) { ?>
+                                        <div class="block-tour__items">
+                                            <? if (empty($item['$picture'])) { ?>
+                                                <img src="" class="block-tour__picture">
+                                            <? } else { ?>
+                                                <img src=" <?= $item['$picture'] ?>" class="block-tour__picture">
+                                            <? } ?>
+                                            <div class="block-tour__info-container">
+                                                <a href="/detail-tour/detailforlk.php?tour=<?= $elem['id']; ?>"><?= $elem['name'] ?></a>
+                                                <p><?= $item['name'] . $item['link'] ?></p>
+                                            </div>
+                                        </div>
+                                    <?
+                                    }
                                 }
-                            } ?><? } ?>
+                            } else { ?>
+                                <div class="account-field">
+                                    <span>У вас ещё нет попутчиков</span>
+                                </div>
+                            <?
+                            }
+                            ?>
                         <? } catch (Throwable $ex) {
                             echo "Ошибка";
                         } ?>

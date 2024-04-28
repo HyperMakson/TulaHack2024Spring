@@ -203,7 +203,7 @@ function selectReviewsbyUser($userId)
     $stmt->execute(['userId' => $userId]);
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
-function countUserTrip(int $userId)
+function countUserTrip($userId)
 {
     global $pdo;
     $sql = 'SELECT COUNT(id_trip) FROM user_history WHERE id_user = :userId;';
