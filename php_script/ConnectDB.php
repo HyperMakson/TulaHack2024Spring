@@ -240,7 +240,10 @@ function selectCompanionsbyUserId($userId){
 }
 function selectReviewsbyId($reviews){
     global $pdo;
-    $sql = 'SELECT text FROM reviews WHERE id = :reviewsId';
+    $sql = 'SELECT r.text, t.picture, t.name
+    FROM reviews r
+    JOIN trip t ON r.id_trip = t.id
+    WHERE r.id = :reviewsId';
     $stmt = $pdo->prepare($sql);
     $stmt->execute(['reviewsId'=> $reviews]);
     return $stmt->fetch(PDO::FETCH_ASSOC);

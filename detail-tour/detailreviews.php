@@ -21,6 +21,8 @@ require_once "../php_script/ConnectDB.php";
                     <div class="detail-picture">
                         <p><?= $tour['text']?></p>
                         <div class="detail-btn__container">
+                        <p><?= $tour['name']?></p>
+                        <img src="<?= $tour["picture"]; ?>" alt="<?= $tour["name"]; ?>">
                             
                                
                                    
